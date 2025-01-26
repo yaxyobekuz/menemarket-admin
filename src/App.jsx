@@ -14,14 +14,16 @@ import MainLayout from "./layouts/MainLayout";
 
 // Pages
 import Home from "./pages/Home";
+import Products from "./pages/Products";
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
         {/* For user */}
-        <Route path="/" element={<MainLayout />}>
+        <Route path="/:s?" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="products/:s?" element={<Products />} />
         </Route>
       </Route>
     )

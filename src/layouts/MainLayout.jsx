@@ -19,7 +19,7 @@ const MainLayout = () => {
       <Header />
 
       {/* Main */}
-      <main className="flex flex-col grow">
+      <main className="flex flex-col grow py-14">
         <Outlet />
       </main>
 
