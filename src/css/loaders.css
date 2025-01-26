@@ -1,0 +1,40 @@
+.dots-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+}
+
+.dot-0 {
+  animation: bounce 1s infinite;
+  animation-delay: 0.1s;
+}
+
+.dot-1 {
+  animation: bounce 1s infinite;
+  animation-delay: 0.3s;
+}
+
+.dot-2 {
+  animation: bounce 1s infinite ease;
+  animation-delay: 0.5s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+  60% {
+    scale: 0.7;
+    opacity: 0;
+  }
+}

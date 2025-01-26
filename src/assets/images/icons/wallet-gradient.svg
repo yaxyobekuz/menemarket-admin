@@ -1,0 +1,18 @@
+<svg width="40.000000" height="40.000000" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<linearGradient id="paint_linear_2_3193_0" x1="0.000004" y1="-0.000011" x2="39.999992" y2="39.999996" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#08C8F9"/>
+			<stop offset="1.000000" stop-color="#1A3EDD"/>
+		</linearGradient>
+	</defs>
+	<rect id="Icon" rx="12.000000" width="40.000000" height="40.000000" fill="url(#paint_linear_2_3193_0)" fill-opacity="1.000000"/>
+	<rect id="vuesax/bold/wallet-money" width="24.000000" height="24.000000" transform="translate(8.000000 8.000000)" fill="#FFFFFF" fill-opacity="0"/>
+	<path id="Vector" d="M28.9697 24.08C28.7305 26.75 26.7998 28.5 24 28.5L15 28.5C12.2402 28.5 10 26.26 10 23.5L10 16.5C10 13.78 11.6396 11.88 14.1904 11.56C14.4502 11.52 14.7197 11.5 15 11.5L24 11.5C24.2598 11.5 24.5098 11.51 24.75 11.55C27.1396 11.83 28.7598 13.5 28.9697 15.92C29 16.21 28.7598 16.45 28.4697 16.45L26.9199 16.45C25.96 16.45 25.0703 16.82 24.4297 17.48C23.6699 18.22 23.29 19.26 23.3799 20.3C23.54 22.12 25.1396 23.55 27.04 23.55L28.4697 23.55C28.7598 23.55 29 23.79 28.9697 24.08Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	<g opacity="0.000000">
+		<path id="Vector" d="M32 32L8 32L8 8L32 8L32 32Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+	<path id="Vector" d="M30 18.97L30 21.03C30 21.58 29.5605 22.03 29 22.05L27.04 22.05C25.96 22.05 24.9707 21.26 24.8799 20.18C24.8203 19.55 25.0605 18.96 25.4805 18.55C25.8506 18.17 26.3604 17.95 26.9199 17.95L29 17.95C29.5605 17.97 30 18.42 30 18.97Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+</svg>

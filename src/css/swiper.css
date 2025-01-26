@@ -1,0 +1,83 @@
+/* Navigation */
+.default-swiper-navigation-buttons .swiper-button-next,
+.default-swiper-navigation-buttons .swiper-button-prev {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(10px);
+  border-radius: 100px;
+  transition: scale 200ms ease;
+}
+
+.default-swiper-navigation-buttons .swiper-button-prev {
+  transform: rotate(180deg);
+}
+
+.default-swiper-navigation-buttons .swiper-button-next::after,
+.default-swiper-navigation-buttons .swiper-button-prev::after {
+  display: inline-block;
+  content: "";
+  width: 24px;
+  height: 24px;
+  background: url(../assets/images/icons/blue-solid-arrow-right.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.default-swiper-navigation-buttons .swiper-button-next:active,
+.default-swiper-navigation-buttons .swiper-button-prev:active {
+  scale: 0.8;
+}
+
+/* Pagination */
+.default-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.default-pagination .swiper-pagination-bullet {
+  background: rgba(51, 51, 51, 0.15);
+  opacity: 1;
+  margin: 0px !important;
+  border-radius: 100px;
+  transition: width 200ms, background-color 500ms;
+}
+
+.default-pagination .swiper-pagination-bullet-active {
+  background: #0085ff;
+  width: 24px;
+}
+
+/* Product page swiper */
+.product-page-swiper .swiper-slide {
+  filter: brightness(50%);
+  transform: scale(0.9);
+  transition: transform 350ms, filter 150ms;
+}
+
+.product-page-swiper .swiper-slide-active {
+  filter: brightness(100%);
+  transform: scale(1);
+}
+
+@media only screen and (max-width: 640px) {
+  /* Navigation */
+  .default-swiper-navigation-buttons .swiper-button-next,
+  .default-swiper-navigation-buttons .swiper-button-prev {
+    display: none;
+  }
+
+  .default-pagination .swiper-pagination-bullet {
+    scale: 0.7;
+  }
+  
+  /* Product page swiper */
+  .product-page-swiper .swiper-slide {
+    filter: brightness(100%);
+  }
+}

@@ -1,0 +1,24 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.00195 10C11.2111 10 13.002 8.20914 13.002 6C13.002 3.79086 11.2111 2 9.00195 2C6.79281 2 5.00195 3.79086 5.00195 6C5.00195 8.20914 6.79281 10 9.00195 10Z" fill="url(#paint0_linear_1349_9)"/>
+<path d="M9.00195 21.002C12.8679 21.002 16.002 19.2111 16.002 17.002C16.002 14.7928 12.8679 13.002 9.00195 13.002C5.13596 13.002 2.00195 14.7928 2.00195 17.002C2.00195 19.2111 5.13596 21.002 9.00195 21.002Z" fill="url(#paint1_linear_1349_9)"/>
+<path d="M21 17C21 18.6568 18.9645 19.9999 16.4792 19.9999C17.2114 19.1996 17.7149 18.195 17.7149 17.0013C17.7149 15.8063 17.2102 14.8008 16.4766 14C18.9619 14 21 15.3431 21 17Z" fill="url(#paint2_linear_1349_9)"/>
+<path d="M17.9991 6C17.9991 7.65686 16.656 9 14.9991 9C14.6378 9 14.2915 8.93614 13.9707 8.81908C14.4438 7.98699 14.714 7.02449 14.714 5.99889C14.714 4.97404 14.4442 4.01221 13.9717 3.18054C14.2922 3.06373 14.6382 3 14.9991 3C16.656 3 17.9991 4.34315 17.9991 6Z" fill="url(#paint3_linear_1349_9)"/>
+<defs>
+<linearGradient id="paint0_linear_1349_9" x1="9.00195" y1="2" x2="9.00195" y2="10" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5096FF"/>
+<stop offset="1" stop-color="#024DBE"/>
+</linearGradient>
+<linearGradient id="paint1_linear_1349_9" x1="9.00195" y1="13.002" x2="9.00195" y2="21.002" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5096FF"/>
+<stop offset="1" stop-color="#024DBE"/>
+</linearGradient>
+<linearGradient id="paint2_linear_1349_9" x1="18.7383" y1="14" x2="18.7383" y2="19.9999" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5096FF"/>
+<stop offset="1" stop-color="#024DBE"/>
+</linearGradient>
+<linearGradient id="paint3_linear_1349_9" x1="15.9849" y1="3" x2="15.9849" y2="9" gradientUnits="userSpaceOnUse">
+<stop stop-color="#5096FF"/>
+<stop offset="1" stop-color="#024DBE"/>
+</linearGradient>
+</defs>
+</svg>

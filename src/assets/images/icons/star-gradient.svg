@@ -1,0 +1,20 @@
+<svg width="40.000000" height="40.000000" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<linearGradient id="paint_linear_2_3183_0" x1="0.000004" y1="-0.000011" x2="39.999992" y2="39.999996" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#08C8F9"/>
+			<stop offset="1.000000" stop-color="#1A3EDD"/>
+		</linearGradient>
+	</defs>
+	<rect id="Icon" rx="12.000000" width="40.000000" height="40.000000" fill="url(#paint_linear_2_3183_0)" fill-opacity="1.000000"/>
+	<rect id="vuesax/bold/star" width="24.000000" height="24.000000" transform="translate(8.000000 8.000000)" fill="#FFFFFF" fill-opacity="0"/>
+	<g opacity="0.000000">
+		<path id="Vector" d="M8 8L32 8L32 32L8 32L8 8Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+	</g>
+	<path id="Vector" d="M23.3896 13.21L24.7998 16.03C24.9893 16.42 25.499 16.79 25.9297 16.87L28.4795 17.29C30.1094 17.56 30.4893 18.74 29.3193 19.92L27.3291 21.91C26.999 22.24 26.8096 22.89 26.9199 23.36L27.4893 25.82C27.9395 27.76 26.8994 28.52 25.1895 27.5L22.7998 26.08C22.3691 25.82 21.6494 25.82 21.2197 26.08L18.8291 27.5C17.1191 28.51 16.0791 27.76 16.5293 25.82L17.0996 23.36C17.1895 22.88 16.999 22.23 16.6699 21.9L14.6797 19.91C13.5098 18.74 13.8896 17.56 15.5195 17.28L18.0693 16.86C18.499 16.79 19.0098 16.41 19.1992 16.02L20.6094 13.2C21.3799 11.68 22.6191 11.68 23.3896 13.21Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	<path id="Vector" d="M16 13.75L10 13.75C9.58984 13.75 9.25 13.41 9.25 13C9.25 12.59 9.58984 12.25 10 12.25L16 12.25C16.4102 12.25 16.75 12.59 16.75 13C16.75 13.41 16.4102 13.75 16 13.75Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	<path id="Vector" d="M13 27.75L10 27.75C9.58984 27.75 9.25 27.41 9.25 27C9.25 26.59 9.58984 26.25 10 26.25L13 26.25C13.4102 26.25 13.75 26.59 13.75 27C13.75 27.41 13.4102 27.75 13 27.75Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	<path id="Vector" d="M11 20.75L10 20.75C9.58984 20.75 9.25 20.41 9.25 20C9.25 19.59 9.58984 19.25 10 19.25L11 19.25C11.4102 19.25 11.75 19.59 11.75 20C11.75 20.41 11.4102 20.75 11 20.75Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+</svg>
