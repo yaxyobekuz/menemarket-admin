@@ -8,6 +8,7 @@ const apiEndpoints = {
 
   getProducts: "api/products",
   getProduct: (id) => `api/products/${id}`,
+  deleteProduct: (id) => `api/products/${id}`,
   getProductComments: (id) => `api/comments/product/${id}`,
 
   getNews: "api/news",

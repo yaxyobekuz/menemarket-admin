@@ -5,9 +5,9 @@ import api from "../axiosConfig";
 import endpoints from "../apiEndpoints";
 
 const productService = {
-  getProducts: async (data) => {
+  getProducts: async () => {
     try {
-      return await api.get(endpoints.getProducts, data);
+      return await api.get(endpoints.getProducts);
     } catch (err) {
       throw err;
     }
@@ -24,6 +24,14 @@ const productService = {
   getProductComments: async (id) => {
     try {
       return await api.get(endpoints.getProductComments(id));
+    } catch (err) {
+      throw err;
+    }
+  },
+
+  deleteProduct: async (id) => {
+    try {
+      return await api.delete(endpoints.deleteProduct(id));
     } catch (err) {
       throw err;
     }
