@@ -14,6 +14,7 @@ import MainLayout from "./layouts/MainLayout";
 
 // Pages
 import Home from "./pages/Home";
+import Users from "./pages/Users";
 import Streams from "./pages/Streams";
 import Products from "./pages/Products";
 
@@ -24,6 +25,7 @@ const App = () => {
         {/* For user */}
         <Route path="/:s?" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="users" element={<Users />} />
           <Route path="streams" element={<Streams />} />
           <Route path="products/:s?" element={<Products />} />
         </Route>
