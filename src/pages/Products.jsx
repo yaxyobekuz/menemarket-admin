@@ -64,7 +64,7 @@ const Products = () => {
   }, []);
 
   return (
-    <div className="container py-6 space-y-6">
+    <div className="container py-6 space-y-7">
       <h1>Mahsulotlar</h1>
 
       {/* Nav tabs */}
