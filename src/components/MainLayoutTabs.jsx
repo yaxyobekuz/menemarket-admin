@@ -36,7 +36,7 @@ const MainLayoutTabs = () => {
   }, []);
 
   return (
-    <div className="fixed inset-x-0 bottom-0 w-full h-14 bg-white border-t border-neutral-200">
+    <div className="fixed inset-x-0 bottom-0 z-10 w-full h-14 bg-white border-t border-neutral-200">
       <div
         ref={containerRef}
         className="flex w-full h-full overflow-x-auto scroll-hidden"
