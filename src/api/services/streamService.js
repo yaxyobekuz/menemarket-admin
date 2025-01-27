@@ -5,17 +5,9 @@ import api from "../axiosConfig";
 import endpoints from "../apiEndpoints";
 
 const streamService = {
-  createStream: async (id, data) => {
+  getStream: async (id) => {
     try {
-      return await api.post(endpoints.createStream(id), data);
-    } catch (err) {
-      throw err;
-    }
-  },
-
-  getStreams: async () => {
-    try {
-      return await api.get(endpoints.getStreams);
+      return await api.get(endpoints.getStream(id));
     } catch (err) {
       throw err;
     }
