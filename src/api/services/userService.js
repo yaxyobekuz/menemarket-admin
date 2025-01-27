@@ -37,6 +37,22 @@ const userService = {
     }
   },
 
+  getUsers: async () => {
+    try {
+      return await api.get(endpoints.getUsers);
+    } catch (err) {
+      throw err;
+    }
+  },
+
+  deleteUser: async (id) => {
+    try {
+      return await api.delete(endpoints.deleteUser(id));
+    } catch (err) {
+      throw err;
+    }
+  },
+
   verifyOtp: async (data) => {
     try {
       return await api.post(endpoints.verifyOtp, data);

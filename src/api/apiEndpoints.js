@@ -6,6 +6,9 @@ const apiEndpoints = {
   verifyOtp: "api/users/verifyOTP",
   resendOtp: "api/users/resendOTP",
 
+  getUsers: "api/users",
+  deleteUser: (id) => `api/users/${id}`,
+
   getProducts: "api/products",
   getProduct: (id) => `api/products/${id}`,
   deleteProduct: (id) => `api/products/${id}`,
