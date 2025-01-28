@@ -55,7 +55,7 @@ const Users = () => {
 
   useEffect(() => {
     if (allUsers?.length === 0) loadUsers();
-    else setTimeout(() => setIsLoading(false), 500);
+    else setTimeout(() => setIsLoading(false), 300);
   }, []);
 
   return (

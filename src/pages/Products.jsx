@@ -56,11 +56,8 @@ const Products = () => {
   };
 
   useEffect(() => {
-    if (allProducts?.length === 0) {
-      loadProducts();
-    } else {
-      setTimeout(() => setIsLoading(false), 500);
-    }
+    if (allProducts?.length === 0) loadProducts();
+    else setTimeout(() => setIsLoading(false), 300);
   }, []);
 
   return (
@@ -103,14 +100,14 @@ const Products = () => {
         </ul>
       </nav>
 
-      {/* Products */}
+      {/* Comments */}
       {!isLoading && !hasError && filteredProducts?.length >= 0 && (
         <ul className="grid grid-cols-8 gap-5">
           {filteredProducts.map((product) => (
             <ProductItem
-              key={product._id}
               data={product}
-              handleDeleteProduct={handleDeleteProduct}
+              key={product?._id}
+              deleteProduct={handleDeleteProduct}
             />
           ))}
         </ul>

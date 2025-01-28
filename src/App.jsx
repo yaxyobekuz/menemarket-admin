@@ -17,6 +17,7 @@ import Home from "./pages/Home";
 import Users from "./pages/Users";
 import Streams from "./pages/Streams";
 import Products from "./pages/Products";
+import Comments from "./pages/Comments";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="users" element={<Users />} />
           <Route path="streams" element={<Streams />} />
+          <Route path="comments" element={<Comments />} />
           <Route path="products/:s?" element={<Products />} />
         </Route>
       </Route>

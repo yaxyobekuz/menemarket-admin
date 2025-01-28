@@ -3,23 +3,12 @@ import { Link } from "react-router-dom";
 
 // Components
 import Icon from "./Icon";
+import DeleteAlertDialog from "./DeleteAlertDialog";
 
 // Images
 import starIcon from "@/assets/images/icons/mono-star-filled.svg";
 
-import {
-  AlertDialog,
-  AlertDialogTitle,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogDescription,
-} from "@/components/ui/alert-dialog";
-
-const ProductItem = ({ data = {}, handleDeleteProduct }) => {
+const ProductItem = ({ data = {}, deleteProduct }) => {
   const { title, images, price, _id: id } = data || {};
   const image = images ? images[0] : "";
 
@@ -33,7 +22,7 @@ const ProductItem = ({ data = {}, handleDeleteProduct }) => {
           src={image}
           loading="lazy"
           alt={data.title}
-          className="w-full h-auto aspect-[3/4] object-cover bg-gray-light"
+          className="w-full h-auto aspect-[3/4] object-cover bg-white"
         />
       </div>
 
@@ -74,40 +63,22 @@ const ProductItem = ({ data = {}, handleDeleteProduct }) => {
         </div>
 
         {/* bottom */}
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <button className="btn-primary z-10 bg-red-500 h-9 font-normal hover:bg-red-600">
-              O'chirish
-            </button>
-          </AlertDialogTrigger>
 
-          {/* Alert dialog content  */}
-          <AlertDialogContent>
-            {/* Header */}
-            <AlertDialogHeader>
-              <AlertDialogTitle>Ishonchingiz komilmi?</AlertDialogTitle>
-
-              <AlertDialogDescription>
-                <span>Siz haqiqatdan ham </span>
-                <b className="font-semibold">
-                  {title?.slice(0, 144) || "Mahsulot nomi topilmadi"}...
-                </b>
-                <span> nomli mahsulotni o'chirmoqchimisiz.</span>
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-
-            {/* Footer */}
-            <AlertDialogFooter>
-              <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
-              <AlertDialogAction
-                onClick={() => handleDeleteProduct(id)}
-                className="bg-red-500 hover:bg-red-600"
-              >
-                O'chirish
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
+        <DeleteAlertDialog
+          action={deleteProduct}
+          title="Mahsulotni o'chirish"
+          description={
+            <>
+              <span>Siz haqiqatdan ham </span>
+              <b className="font-semibold">{title?.slice(0, 144)}</b>
+              <span> nomli mahsulotni o'chirmoqchimisiz?</span>
+            </>
+          }
+        >
+          <button className="btn-primary z-10 bg-red-500 h-9 font-normal hover:bg-red-600">
+            O'chirish
+          </button>
+        </DeleteAlertDialog>
       </div>
 
       {/* Link */}
