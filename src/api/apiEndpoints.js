@@ -27,6 +27,8 @@ const apiEndpoints = {
 
   createPayment: "api/payments",
 
+  getComments: "api/comments",
+  deleteComment: (id) => `api/comments/${id}`,
   createComment: (id) => `api/comments/${id}`,
 };
 
