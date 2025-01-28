@@ -88,7 +88,7 @@
   }
 }
 
-:is(.main-layout-tabs, .products-layout-tabs) a.active {
+:is(.main-layout-tabs, .products-layout-tabs) :is(a.active, button.active) {
   @apply bg-gray-light text-primary-default;
 }
 
