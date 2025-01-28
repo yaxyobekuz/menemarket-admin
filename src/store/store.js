@@ -8,6 +8,7 @@ import usersSlice from "./features/usersSlice";
 import modalSlice from "./features/modalSlice";
 import streamsSlice from "./features/streamsSlice";
 import productsSlice from "./features/productsSlice";
+import commentsSlice from "./features/commentsSlice";
 
 export default configureStore({
   reducer: {
@@ -18,5 +19,6 @@ export default configureStore({
     modal: modalSlice,
     streams: streamsSlice,
     products: productsSlice,
+    comments: commentsSlice,
   },
 });
