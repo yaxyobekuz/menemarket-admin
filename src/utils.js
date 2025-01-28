@@ -1,3 +1,5 @@
+import avatars from "./data/avatars";
+
 export const getRandomNumber = (min = 0, max = 1) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
@@ -33,4 +35,17 @@ export const formatTime = (input) => {
   const minutes = String(date.getMinutes()).padStart(2, "0");
 
   return `${hours}:${minutes}`;
+};
+
+// Get random avatar
+export const getRandomAvatar = (gender = "default") => {
+  const data = avatars[gender?.toLowerCase()];
+  const randomIndex = getRandomNumber(0, data.length - 1);
+  return data[randomIndex];
+};
+
+// Get avatar by index
+export const getAvatarByIndex = (gender = "default", index = 0) => {
+  const data = avatars[gender?.toLowerCase()];
+  return data[index] || data[0];
 };
