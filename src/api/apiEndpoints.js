@@ -15,6 +15,7 @@ const apiEndpoints = {
   getProductComments: (id) => `api/comments/product/${id}`,
 
   getNews: "api/news",
+  deleteNews: (id) => `api/news/${id}`,
   getNewsById: (id) => `api/news/${id}`,
 
   getBlogs: "api/blogs",
@@ -30,6 +31,8 @@ const apiEndpoints = {
   getComments: "api/comments",
   deleteComment: (id) => `api/comments/${id}`,
   createComment: (id) => `api/comments/${id}`,
+
+  getOrders: "api/orders",
 };
 
 export default apiEndpoints;

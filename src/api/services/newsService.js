@@ -20,6 +20,14 @@ const newsService = {
       throw err;
     }
   },
+
+  deleteNews: async (id) => {
+    try {
+      return await api.delete(endpoints.deleteNews(id));
+    } catch (err) {
+      throw err;
+    }
+  },
 };
 
 export default newsService;
