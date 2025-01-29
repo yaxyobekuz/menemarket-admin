@@ -4,7 +4,7 @@ import api from "../axiosConfig";
 // Endpoints
 import endpoints from "../apiEndpoints";
 
-const blogService = {
+const blogsService = {
   getBlogs: async () => {
     try {
       return await api.get(endpoints.getBlogs);
@@ -20,6 +20,14 @@ const blogService = {
       throw err;
     }
   },
+
+  deleteBlogs: async (id) => {
+    try {
+      return await api.delete(endpoints.deleteBlogs(id));
+    } catch (err) {
+      throw err;
+    }
+  },
 };
 
-export default blogService;
+export default blogsService;
