@@ -5,8 +5,8 @@ const initialState = {
   data: [],
 };
 
-export const blogSlice = createSlice({
-  name: "blog",
+export const blogsSlice = createSlice({
+  name: "blogs",
   initialState,
   reducers: {
     updateBlogs: (state, action) => {
@@ -15,6 +15,6 @@ export const blogSlice = createSlice({
   },
 });
 
-export const { updateBlogs } = blogSlice.actions;
+export const { updateBlogs } = blogsSlice.actions;
 
-export default blogSlice.reducer;
+export default blogsSlice.reducer;

@@ -3,7 +3,7 @@ import { configureStore } from "@reduxjs/toolkit";
 // Features
 import userSlice from "./features/userSlice";
 import newsSlice from "./features/newsSlice";
-import blogSlice from "./features/blogSlice";
+import blogsSlice from "./features/blogsSlice";
 import usersSlice from "./features/usersSlice";
 import modalSlice from "./features/modalSlice";
 import ordersSlice from "./features/ordersSlice";
@@ -15,7 +15,7 @@ export default configureStore({
   reducer: {
     user: userSlice,
     news: newsSlice,
-    blogs: blogSlice,
+    blogs: blogsSlice,
     users: usersSlice,
     modal: modalSlice,
     orders: ordersSlice,
