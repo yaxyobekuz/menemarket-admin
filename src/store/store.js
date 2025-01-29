@@ -6,6 +6,7 @@ import newsSlice from "./features/newsSlice";
 import blogSlice from "./features/blogSlice";
 import usersSlice from "./features/usersSlice";
 import modalSlice from "./features/modalSlice";
+import ordersSlice from "./features/ordersSlice";
 import streamsSlice from "./features/streamsSlice";
 import productsSlice from "./features/productsSlice";
 import commentsSlice from "./features/commentsSlice";
@@ -17,6 +18,7 @@ export default configureStore({
     blogs: blogSlice,
     users: usersSlice,
     modal: modalSlice,
+    orders: ordersSlice,
     streams: streamsSlice,
     products: productsSlice,
     comments: commentsSlice,
