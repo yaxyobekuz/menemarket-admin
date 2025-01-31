@@ -14,7 +14,11 @@ import MainLayout from "./layouts/MainLayout";
 
 // Pages
 import Home from "./pages/Home";
+import News from "./pages/News";
 import Users from "./pages/Users";
+import Blogs from "./pages/Blogs";
+import Orders from "./pages/Orders";
+import Page404 from "./pages/Page404";
 import Streams from "./pages/Streams";
 import Products from "./pages/Products";
 import Comments from "./pages/Comments";
@@ -24,9 +28,13 @@ const App = () => {
     createRoutesFromElements(
       <Route>
         {/* For user */}
-        <Route path="/:s?" element={<MainLayout />}>
+        <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="news" element={<News />} />
           <Route path="users" element={<Users />} />
+          <Route path="blogs" element={<Blogs />} />
+          <Route path="orders" element={<Orders />} />
           <Route path="streams" element={<Streams />} />
           <Route path="comments" element={<Comments />} />
           <Route path="products/:s?" element={<Products />} />
