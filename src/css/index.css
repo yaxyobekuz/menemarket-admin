@@ -34,6 +34,10 @@
   :root {
     --radius: 0.5rem;
   }
+
+  address {
+    @apply not-italic;
+  }
 }
 
 /* --- Components --- */
@@ -77,6 +81,18 @@
 
   .bg-gradient-gray {
     @apply bg-gradient-to-b from-gray-light to-gray-medium/20;
+  }
+
+  .primary-link {
+    @apply transition-colors duration-200 hover:text-primary-default;
+  }
+
+  table th {
+    @apply font-semibold;
+  }
+
+  table td {
+    @apply text-center;
   }
 }
 
