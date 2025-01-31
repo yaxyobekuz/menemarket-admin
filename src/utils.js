@@ -49,3 +49,7 @@ export const getAvatarByIndex = (gender = "default", index = 0) => {
   const data = avatars[gender?.toLowerCase()];
   return data[index] || data[0];
 };
+
+export const extractNumbers = (text = "") => {
+  return text.replace(/\D/g, "");
+};
