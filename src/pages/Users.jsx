@@ -6,11 +6,11 @@ import { notification } from "@/notification";
 
 // Components
 import Icon from "@/components/Icon";
-import UserItem from "@/components/UserItem";
 import DotsLoader from "@/components/DotsLoader";
+import UsersTable from "@/components/UsersTable";
 
 // Services
-import userService from "@/api/services/userService";
+import usersService from "@/api/services/usersService";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -43,7 +43,7 @@ const Users = () => {
     setHasError(false);
     setIsLoading(true);
 
-    userService
+    usersService
       .getUsers()
       .then((users) => {
         setFilteredUsers(users);
@@ -101,17 +101,11 @@ const Users = () => {
         </ul>
       </nav>
 
-      {/* Products */}
+      {/* Users */}
       {!isLoading && !hasError && filteredUsers?.length >= 0 && (
-        <ul className="grid grid-cols-8 gap-5">
-          {filteredUsers.map((user) => (
-            <UserItem
-              key={user._id}
-              data={user}
-              handleDeleteUser={handleDeleteUser}
-            />
-          ))}
-        </ul>
+        <div className="overflow-hidden rounded-xl">
+          <UsersTable users={filteredUsers} />
+        </div>
       )}
 
       {/* Loading animation */}
@@ -128,7 +122,7 @@ const Users = () => {
           <button
             title="Reload"
             aria-label="Reload"
-            onClick={loadProducts}
+            onClick={loadUsers}
             className="flex items-center justify-center size-10"
           >
             <Icon src={reloadIcon} alt="Reload icon" />
