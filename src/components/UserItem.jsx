@@ -44,7 +44,11 @@ const UserItem = ({ data = {}, index = 0, isScrolled }) => {
       <td>{formattedRole}</td>
 
       {/* Email */}
-      <TruncatedCell>{email}</TruncatedCell>
+      <TruncatedCell>
+        <a href={`mailto:${email}`} className="primary-link">
+          {email}
+        </a>
+      </TruncatedCell>
 
       {/* Balance */}
       <TruncatedCell>{balance?.toLocaleString()} so'm</TruncatedCell>
