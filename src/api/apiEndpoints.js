@@ -1,39 +1,44 @@
 const apiEndpoints = {
+  // Auth
+  login: "login",
   logout: "logout",
-  loginUser: "login",
-  getUserData: "profile",
-  createUser: "api/users",
-  verifyOtp: "api/users/verifyOTP",
-  resendOtp: "api/users/resendOTP",
+  getUserProfile: "profile",
 
+  // Payments
+  createPayment: "api/payments",
+
+  // Users
   getUsers: "api/users",
   deleteUser: (id) => `api/users/${id}`,
 
-  getProducts: "api/products",
-  getProduct: (id) => `api/products/${id}`,
-  deleteProduct: (id) => `api/products/${id}`,
-  getProductComments: (id) => `api/comments/product/${id}`,
-
+  // News
   getNews: "api/news",
   deleteNews: (id) => `api/news/${id}`,
   getNewsById: (id) => `api/news/${id}`,
-  
+
+  // Streams
+  getStream: (id) => `api/oqim/${id}`,
+  createStream: (id) => `api/oqim/${id}`,
+
+  // Blogs
   getBlogs: "api/blogs",
   deleteBlogs: (id) => `api/blogs/${id}`,
   getBlogById: (id) => `api/blogs/${id}`,
 
-  getStream: (id) => `api/oqim/${id}`,
-  createStream: (id) => `api/oqim/${id}`,
-
+  // Orders
+  getOrders: "api/orders",
   createOrder: (id) => `api/orders/${id}`,
 
-  createPayment: "api/payments",
-
+  // Comments
   getComments: "api/comments",
   deleteComment: (id) => `api/comments/${id}`,
   createComment: (id) => `api/comments/${id}`,
 
-  getOrders: "api/orders",
+  // Products
+  getProducts: "api/products",
+  getProduct: (id) => `api/products/${id}`,
+  deleteProduct: (id) => `api/products/${id}`,
+  getProductComments: (id) => `api/comments/product/${id}`,
 };
 
 export default apiEndpoints;
