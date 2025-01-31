@@ -82,7 +82,7 @@ const Users = () => {
           {/* Product */}
           <li>
             <NavLink
-              to="/users/new-user"
+              to="/users/create-worker"
               className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
             >
               Ishchi yaratish

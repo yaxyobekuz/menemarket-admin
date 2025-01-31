@@ -24,7 +24,7 @@
   input,
   textarea,
   select {
-    @apply w-full bg-gray-light outline-none rounded-xl;
+    @apply w-full bg-white outline-none rounded-lg;
   }
 
   textarea {
@@ -68,7 +68,7 @@
   }
 
   .btn {
-    @apply flex items-center justify-center gap-2.5 rounded-lg font-medium transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed;
+    @apply flex items-center justify-center gap-2.5 rounded-lg transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed;
   }
 
   .btn-primary {
