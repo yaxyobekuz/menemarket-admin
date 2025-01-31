@@ -17,7 +17,9 @@ import Home from "./pages/Home";
 import News from "./pages/News";
 import Users from "./pages/Users";
 import Blogs from "./pages/Blogs";
+import Login from "./pages/Login";
 import Orders from "./pages/Orders";
+import Profile from "./pages/Profile";
 import Page404 from "./pages/Page404";
 import Streams from "./pages/Streams";
 import Products from "./pages/Products";
@@ -27,7 +29,6 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        {/* For user */}
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
           <Route path="*" element={<Page404 />} />
@@ -36,9 +37,11 @@ const App = () => {
           <Route path="blogs" element={<Blogs />} />
           <Route path="orders" element={<Orders />} />
           <Route path="streams" element={<Streams />} />
+          <Route path="profile" element={<Profile />} />
           <Route path="comments" element={<Comments />} />
           <Route path="products/:s?" element={<Products />} />
         </Route>
+        <Route path="/login" element={<Login />} />
       </Route>
     )
   );
