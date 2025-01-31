@@ -44,7 +44,7 @@ export default [
     name: "Bloglar",
   },
   {
-    path: "/proofile",
+    path: "/profile",
     name: "Profil",
   },
   {
