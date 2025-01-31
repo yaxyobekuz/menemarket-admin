@@ -150,7 +150,7 @@
 .custom-active-border-r::after {
   content: "";
   width: 2px;
-  @apply inline-block absolute right-0 inset-y-0 h-12 bg-white;
+  @apply inline-block absolute right-0 inset-y-0 h-12 bg-neutral-100;
 }
 
 .white-input input {

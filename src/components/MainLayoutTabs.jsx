@@ -42,7 +42,7 @@ const MainLayoutTabs = () => {
         className="flex w-full h-full overflow-x-auto scroll-hidden"
       >
         {/* Sticky element */}
-        <div className="sticky-element flex items-center justify-center sticky left-0 w-24 h-full bg-white shrink-0 border-r border-transparent transition-colors duration-200">
+        <div className="sticky-element flex items-center justify-center sticky left-0 w-24 h-full bg-white shrink-0 border-r border-neutral-200 transition-colors duration-200">
           <button className="p-2.5 rounded-full transition-colors duration-200 hover:bg-gray-light">
             <Icon src={hamburgerMenuIcon} alt="Hamburger menu" />
           </button>
