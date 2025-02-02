@@ -7,9 +7,6 @@ import { notification } from "../notification";
 // Services
 import authService from "@/api/services/authService";
 
-import { useDispatch } from "react-redux";
-import { updateUser } from "../store/features/userSlice";
-
 const Profile = () => {
   const navigate = useNavigate();
 

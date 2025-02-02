@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-// Toaster (For notification)
-import { notification } from "@/notification";
-
 // Components
-import Icon from "@/components/Icon";
+import SearchBox from "@/components/SearchBox";
 import DotsLoader from "@/components/DotsLoader";
 
-// Images
-import reloadIcon from "@/assets/images/icons/reload.svg";
-
-import SearchBox from "@/components/SearchBox";
+// Services
 import streamService from "@/api/services/streamService";
 
 const Products = () => {
@@ -69,7 +63,7 @@ const Products = () => {
 
       {/* Search result */}
       {!isLoading && !hasError && stream && (
-        <div className="">
+        <>
           <ul className="space-y-5">
             {/* Id */}
             <li className="flex gap-2">
@@ -135,7 +129,7 @@ const Products = () => {
               </ul>
             </li>
           </ul>
-        </div>
+        </>
       )}
 
       {/* Loading animation */}

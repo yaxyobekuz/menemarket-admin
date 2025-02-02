@@ -1,8 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-
-// Components
-import Icon from "./Icon";
 
 // Images
 import logoIcon from "../assets/images/icons/logo.svg";

@@ -28,13 +28,13 @@ const Users = () => {
 
   const handleDeleteUser = (id) => {
     notification.promise(
-      userService.deleteUser(id).then(() => {
+      usersService.deleteUser(id).then(() => {
         setFilteredUsers((users) => users.filter(({ _id }) => _id !== id));
       }),
       {
         loading: "Foydalanuvchi o'chirilmoqda...",
         success: "Foydalanuvchi muvaffaqiyatli o'chirildi!",
-        error: "Foydalanuvchi o'chirishda xatolik yuz berdi!",
+        error: "Foydalanuvchini o'chirishda xatolik yuz berdi!",
       }
     );
   };
@@ -104,7 +104,7 @@ const Users = () => {
       {/* Users */}
       {!isLoading && !hasError && filteredUsers?.length >= 0 && (
         <div className="overflow-hidden rounded-xl">
-          <UsersTable users={filteredUsers} />
+          <UsersTable users={filteredUsers} deleteUser={handleDeleteUser} />
         </div>
       )}
 
