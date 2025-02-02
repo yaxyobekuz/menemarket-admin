@@ -5,9 +5,9 @@ import api from "../axiosConfig";
 import endpoints from "../apiEndpoints";
 
 const userService = {
-  createUser: async (data) => {
+  createWorker: async (data) => {
     try {
-      return await api.post(endpoints.createUser, data);
+      return await api.post(endpoints.createWorker, data);
     } catch (err) {
       throw err;
     }
@@ -16,22 +16,6 @@ const userService = {
   logout: async () => {
     try {
       return await api.post(endpoints.logout);
-    } catch (err) {
-      throw err;
-    }
-  },
-
-  loginUser: async (data) => {
-    try {
-      return await api.post(endpoints.loginUser, data);
-    } catch (err) {
-      throw err;
-    }
-  },
-
-  getUserData: async () => {
-    try {
-      return await api.get(endpoints.getUserData);
     } catch (err) {
       throw err;
     }

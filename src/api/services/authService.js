@@ -21,6 +21,14 @@ const authService = {
     }
   },
 
+  verifyOtp: async (data) => {
+    try {
+      return await api.post(endpoints.verifyOtp, data);
+    } catch (err) {
+      throw err;
+    }
+  },
+
   getUserProfile: async () => {
     try {
       return await api.get(endpoints.getUserProfile);
