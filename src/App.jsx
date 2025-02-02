@@ -24,6 +24,7 @@ import Page404 from "./pages/Page404";
 import Streams from "./pages/Streams";
 import Products from "./pages/Products";
 import Comments from "./pages/Comments";
+import CreateWorker from "./pages/CreateWorker";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="comments" element={<Comments />} />
           <Route path="products/:s?" element={<Products />} />
+          <Route path="users/create-worker" element={<CreateWorker />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Route>
