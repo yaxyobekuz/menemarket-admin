@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // Components
 import UserItem from "./UserItem";
 
-const UsersTable = ({ users }) => {
+const UsersTable = ({ users, deleteUser }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const handleScroll = (e) => setIsScrolled(e.target.scrollLeft > 1);
 
@@ -25,10 +25,12 @@ const UsersTable = ({ users }) => {
             </th>
             <th>ID</th>
             <th>Ismi</th>
-            <th>Roli</th>
+            <th className="w-32">Roli</th>
+            <th>Holati</th>
             <th>E-pochta</th>
             <th>Balans</th>
-            <th>Sana</th>
+            <th className="w-32">Sana</th>
+            <th className="w-20">Harakat</th>
           </tr>
         </thead>
 
@@ -39,6 +41,7 @@ const UsersTable = ({ users }) => {
               data={order}
               key={order?._id}
               index={index + 1}
+              deleteUser={deleteUser}
               isScrolled={isScrolled}
             />
           ))}

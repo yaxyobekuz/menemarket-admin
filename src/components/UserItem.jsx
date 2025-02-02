@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 // Data
 import roles from "@/data/roles";
 
-// Utils
-import { formatDate } from "@/utils";
-
 // Components
+import Icon from "./Icon";
 import StickyCell from "./StickyCell";
 import TruncatedCell from "./TruncatedCell";
 
-const UserItem = ({ data = {}, index = 0, isScrolled }) => {
+// Utils
+import { formatDate, isOneDayPassed } from "@/utils";
+
+// Images
+import deleteIcon from "../assets/images/icons/delete.svg";
+
+const UserItem = ({ data = {}, index = 0, isScrolled, deleteUser }) => {
   const {
     email,
     balance,
@@ -19,8 +23,11 @@ const UserItem = ({ data = {}, index = 0, isScrolled }) => {
     status: role,
     name: firstName,
     created_at: timestamp,
+    verificated: isVerificated,
   } = data || {};
 
+  const canDelete = isOneDayPassed(timestamp) && !isVerificated;
+  const handleDeleteUser = () => (canDelete ? deleteUser(id) : null);
   const formattedRole =
     roles.find(({ value }) => value == role?.toLowerCase())?.name ||
     "Mavjud emas";
@@ -31,7 +38,7 @@ const UserItem = ({ data = {}, index = 0, isScrolled }) => {
       <StickyCell children={index} isActive={isScrolled} />
 
       {/* Id */}
-      <td>{id}</td>
+      <TruncatedCell>{id}</TruncatedCell>
 
       {/* First Name */}
       <TruncatedCell trunc="line-clamp-2">
@@ -42,6 +49,13 @@ const UserItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Role */}
       <td>{formattedRole}</td>
+
+      {/* Verificated */}
+      <td>
+        <span className={isVerificated ? "text-green-500" : "text-red-500"}>
+          {isVerificated ? "Tasdiqlangan" : "Tasdiqlanmagan"}
+        </span>
+      </td>
 
       {/* Email */}
       <TruncatedCell>
@@ -55,6 +69,17 @@ const UserItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Date */}
       <td>{formatDate(timestamp)}</td>
+
+      {/* Delete button */}
+      <td>
+        <button
+          disabled={!canDelete}
+          onClick={handleDeleteUser}
+          className="p-2 disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <Icon src={deleteIcon} />
+        </button>
+      </td>
     </tr>
   );
 };
