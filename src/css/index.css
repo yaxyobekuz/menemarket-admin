@@ -18,7 +18,7 @@
   }
 
   h2 {
-    @apply font-semibold text-xl xs:text-2xl sm:text-3xl  md:text-[32px] md:leading-normal md:font-bold;
+    @apply font-semibold text-lg xs:text-xl sm:text-xl md:text-[27px] md:leading-normal md:font-bold;
   }
 
   input,
@@ -85,6 +85,10 @@
 
   .primary-link {
     @apply transition-colors duration-200 hover:text-primary-default;
+  }
+
+  .gray-input input {
+    @apply bg-neutral-100;
   }
 
   table th {
