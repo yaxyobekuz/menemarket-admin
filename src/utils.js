@@ -37,6 +37,16 @@ export const formatTime = (input) => {
   return `${hours}:${minutes}`;
 };
 
+export const isOneDayPassed = (dateString) => {
+  const inputDate = new Date(dateString);
+  const currentDate = new Date();
+  inputDate.setHours(0, 0, 0, 0);
+  currentDate.setHours(0, 0, 0, 0);
+  const differenceInTime = currentDate - inputDate;
+  const differenceInDays = differenceInTime / (1000 * 60 * 60 * 24);
+  return differenceInDays >= 1;
+};
+
 // Get random avatar
 export const getRandomAvatar = (gender = "default") => {
   const data = avatars[gender?.toLowerCase()];
