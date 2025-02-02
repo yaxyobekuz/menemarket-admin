@@ -1,14 +1,16 @@
 const apiEndpoints = {
+  // Payments
+  createPayment: "api/payments",
+
   // Auth
   login: "login",
   logout: "logout",
   getUserProfile: "profile",
-
-  // Payments
-  createPayment: "api/payments",
+  verifyOtp: "api/users/verifyOTP",
 
   // Users
   getUsers: "api/users",
+  createWorker: "api/users/worker",
   deleteUser: (id) => `api/users/${id}`,
 
   // News
