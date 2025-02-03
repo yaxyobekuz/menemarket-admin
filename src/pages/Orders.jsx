@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 // Components
 import Icon from "@/components/Icon";
+import Tabs from "@/components/Tabs";
 import DotsLoader from "@/components/DotsLoader";
 import OrdersTable from "@/components/OrdersTable";
 
@@ -47,40 +47,7 @@ const Orders = () => {
       <h1>Buyurtmalar</h1>
 
       {/* Nav tabs */}
-      <nav className="products-layout-tabs">
-        <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {/* Main */}
-          <li>
-            <NavLink
-              end
-              to="/orders"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Asosiy
-            </NavLink>
-          </li>
-
-          {/* Product */}
-          <li>
-            <NavLink
-              to="/orders/new-product"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Yaratish
-            </NavLink>
-          </li>
-
-          {/* Search */}
-          <li>
-            <NavLink
-              to="/orders/search"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Qidirish
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Tabs name="orders" />
 
       {/* Orders */}
       {!isLoading && !hasError && filteredOrders?.length >= 0 && (

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 // Toaster (For notification)
 import { notification } from "@/notification";
 
 // Components
+import Tabs from "@/components/Tabs";
 import Icon from "@/components/Icon";
 import DotsLoader from "@/components/DotsLoader";
 import UsersTable from "@/components/UsersTable";
@@ -66,40 +66,7 @@ const Users = () => {
       </h1>
 
       {/* Nav tabs */}
-      <nav className="products-layout-tabs">
-        <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {/* Main */}
-          <li>
-            <NavLink
-              end
-              to="/users"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Asosiy
-            </NavLink>
-          </li>
-
-          {/* Product */}
-          <li>
-            <NavLink
-              to="/users/create-worker"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Ishchi yaratish
-            </NavLink>
-          </li>
-
-          {/* Search */}
-          <li>
-            <NavLink
-              to="/users/search"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Qidirish
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Tabs name="users" />
 
       {/* Users */}
       {!isLoading && !hasError && filteredUsers?.length >= 0 && (

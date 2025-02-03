@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/hover-card";
 
 // Data
-import mainLayoutTabs from "@/data/mainLayoutTabs";
+import navLinks from "@/data/navLinks";
 
 // Images
 import hamburgerMenuIcon from "@/assets/images/icons/hamburger-menu.svg";
@@ -35,13 +35,13 @@ const MainLayoutTabs = () => {
             <HoverCardContent sideOffset={12} align="right" className="p-2">
               <nav className="main-layout-tabs">
                 <ul>
-                  {mainLayoutTabs.map((tab) => (
-                    <li className="group w-full" key={tab.name}>
+                  {navLinks.main.map((navLink) => (
+                    <li className="group w-full" key={navLink.label}>
                       <NavLink
-                        to={tab.path}
+                        to={navLink.path}
                         className="block px-3.5 py-1.5 rounded-md transition-colors duration-200 hover:bg-gray-light/70"
                       >
-                        {tab.name}
+                        {navLink.label}
                       </NavLink>
                     </li>
                   ))}
@@ -54,13 +54,13 @@ const MainLayoutTabs = () => {
         {/* Nav */}
         <nav className="main-layout-tabs w-full h-full">
           <ul className="flex w-full h-full">
-            {mainLayoutTabs.map((tab) => (
-              <li className="group min-w-max" key={tab.name}>
+            {navLinks.main.map((navLink) => (
+              <li className="group min-w-max" key={navLink.label}>
                 <NavLink
-                  to={tab.path}
+                  to={navLink.path}
                   className="flex items-center justify-center px-5 h-full transition-colors duration-200 hover:bg-gray-light/70 group-first:border-l-0"
                 >
-                  {tab.name}
+                  {navLink.label}
                 </NavLink>
               </li>
             ))}

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 // Toaster (For notification)
 import { notification } from "@/notification";
 
 // Components
+import Tabs from "@/components/Tabs";
 import Icon from "@/components/Icon";
 import NewsItem from "@/components/NewsItem";
 import DotsLoader from "@/components/DotsLoader";
@@ -63,30 +63,7 @@ const News = () => {
       <h1>Yangiliklar</h1>
 
       {/* Nav tabs */}
-      <nav className="products-layout-tabs">
-        <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {/* Main */}
-          <li>
-            <NavLink
-              end
-              to="/news"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Asosiy
-            </NavLink>
-          </li>
-
-          {/* Product */}
-          <li>
-            <NavLink
-              to="/news/new"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Yaratish
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Tabs name="news" />
 
       {/* News */}
       {!isLoading && !hasError && filteredNews?.length >= 0 && (

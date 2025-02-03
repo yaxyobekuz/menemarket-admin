@@ -1,5 +1,4 @@
-import React, { useCallback, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useCallback, useState } from "react";
 
 // Utils
 import { extractNumbers } from "@/utils";
@@ -12,6 +11,7 @@ import authService from "@/api/services/authService";
 import usersService from "@/api/services/usersService";
 
 // Components
+import Tabs from "@/components/Tabs";
 import LoadingText from "@/components/LoadingText";
 import FormInputWrapper from "@/components/FormInputWrapper";
 
@@ -99,40 +99,7 @@ const Users = () => {
       <h1>Ishchi yaratish</h1>
 
       {/* Nav tabs */}
-      <nav className="products-layout-tabs">
-        <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {/* Main */}
-          <li>
-            <NavLink
-              end
-              to="/users"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Asosiy
-            </NavLink>
-          </li>
-
-          {/* Product */}
-          <li>
-            <NavLink
-              to="/users/create-worker"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Ishchi yaratish
-            </NavLink>
-          </li>
-
-          {/* Search */}
-          <li>
-            <NavLink
-              to="/users/search"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Qidirish
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Tabs name="users" />
 
       {/* Create */}
       {!userId && (

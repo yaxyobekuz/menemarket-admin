@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 // Toaster (For notification)
 import { notification } from "@/notification";
 
 // Components
 import Icon from "@/components/Icon";
+import Tabs from "@/components/Tabs";
 import DotsLoader from "@/components/DotsLoader";
 import CommentItem from "@/components/CommentItem";
 
@@ -98,43 +98,10 @@ const Comments = () => {
 
       {/* Nav tabs */}
       <div className="flex justify-between w-full">
-        <nav className="products-layout-tabs">
-          <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-            {/* Main */}
-            <li>
-              <NavLink
-                end
-                to="/comments"
-                className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-              >
-                Asosiy
-              </NavLink>
-            </li>
-
-            {/* Product */}
-            <li>
-              <NavLink
-                to="/comments/new-product"
-                className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-              >
-                Yaratish
-              </NavLink>
-            </li>
-
-            {/* Search */}
-            <li>
-              <NavLink
-                to="/comments/search"
-                className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-              >
-                Qidirish
-              </NavLink>
-            </li>
-          </ul>
-        </nav>
+        <Tabs name="comments" />
 
         {/* Filter comments by rating */}
-        <ul className="products-layout-tabs flex gap-1 max-w-max bg-white p-1 rounded-xl">
+        <ul className="layout-tabs flex gap-1 max-w-max bg-white p-1 rounded-xl">
           {Array.from({ length: 5 }).map((_, index) => (
             <li key={index}>
               <button

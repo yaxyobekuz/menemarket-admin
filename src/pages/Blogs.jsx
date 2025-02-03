@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 // Toaster (For notification)
 import { notification } from "@/notification";
 
 // Components
 import Icon from "@/components/Icon";
+import Tabs from "@/components/Tabs";
 import BlogsItem from "@/components/NewsItem";
 import DotsLoader from "@/components/DotsLoader";
 
@@ -63,30 +63,8 @@ const Blogs = () => {
       <h1>Bloglar</h1>
 
       {/* Nav tabs */}
-      <nav className="products-layout-tabs">
-        <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {/* Main */}
-          <li>
-            <NavLink
-              end
-              to="/blogs"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Asosiy
-            </NavLink>
-          </li>
+      <Tabs name="blogs" />
 
-          {/* Product */}
-          <li>
-            <NavLink
-              to="/blogs/new"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Yaratish
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
 
       {/* Blogs */}
       {!isLoading && !hasError && filteredBlogs?.length >= 0 && (

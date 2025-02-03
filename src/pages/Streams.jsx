@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 
 // Components
+import Tabs from "@/components/Tabs";
 import SearchBox from "@/components/SearchBox";
 import DotsLoader from "@/components/DotsLoader";
 
@@ -37,26 +37,7 @@ const Products = () => {
       <h1>Oqimlar</h1>
 
       {/* Nav tabs */}
-      <nav className="products-layout-tabs">
-        <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {/* Main */}
-          <li>
-            <p className="inline-block opacity-50 py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50">
-              Asosiy
-            </p>
-          </li>
-
-          {/* Search */}
-          <li>
-            <NavLink
-              to="/streams"
-              className="inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50"
-            >
-              Qidirish
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Tabs name="streams" />
 
       {/* Searchbox */}
       <SearchBox onChange={handleSearchStream} />
