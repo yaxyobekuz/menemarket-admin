@@ -30,6 +30,8 @@ export default {
       },
     },
     screens: {
+      "3xl": "1640px",
+      "2xl": "1440px",
       xl: "1280px",
       lg: "1024px",
       md: "768px",
