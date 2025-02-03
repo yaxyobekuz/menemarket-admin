@@ -24,6 +24,9 @@ import Page404 from "./pages/Page404";
 import Streams from "./pages/Streams";
 import Products from "./pages/Products";
 import Comments from "./pages/Comments";
+import Settings from "./pages/Settings";
+import Contests from "./pages/Contests";
+import DonationBox from "./pages/DonationBox";
 import CreateWorker from "./pages/CreateWorker";
 
 const App = () => {
@@ -41,6 +44,9 @@ const App = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="comments" element={<Comments />} />
           <Route path="products" element={<Products />} />
+          <Route path="contests" element={<Contests />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="donation-box" element={<DonationBox />} />
           <Route path="users/create-worker" element={<CreateWorker />} />
         </Route>
         <Route path="/login" element={<Login />} />
