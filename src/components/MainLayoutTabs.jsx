@@ -22,7 +22,7 @@ const MainLayoutTabs = () => {
     <div className="fixed inset-x-0 bottom-0 z-20 w-full h-14 bg-white border-t border-neutral-200">
       <div className="flex w-full h-full overflow-x-auto scroll-hidden">
         {/* Sticky element */}
-        <div className="sticky-element flex items-center justify-center sticky left-0 w-24 h-full bg-white shrink-0 border-r border-neutral-200 transition-colors duration-200">
+        <div className="sticky-element flex items-center justify-center sticky left-0 w-14 h-full bg-white shrink-0 border-r border-neutral-200 transition-colors duration-200 xs:w-20 sm:w-24">
           <HoverCard>
             {/* Trigger */}
             <HoverCardTrigger asChild>
@@ -35,13 +35,13 @@ const MainLayoutTabs = () => {
             <HoverCardContent sideOffset={12} align="right" className="p-2">
               <nav className="main-layout-tabs">
                 <ul>
-                  {navLinks.main.map((navLink) => (
-                    <li className="group w-full" key={navLink.label}>
+                  {navLinks.main.map(({ path, label }, index) => (
+                    <li className="group w-full" key={index}>
                       <NavLink
-                        to={navLink.path}
-                        className="block px-3.5 py-1.5 rounded-md transition-colors duration-200 hover:bg-gray-light/70"
+                        to={path}
+                        className="block px-3.5 py-1.5 rounded-md font-normal text-[15px] transition-colors duration-200 hover:bg-gray-light/70 sm:text-base"
                       >
-                        {navLink.label}
+                        {label}
                       </NavLink>
                     </li>
                   ))}
@@ -54,13 +54,13 @@ const MainLayoutTabs = () => {
         {/* Nav */}
         <nav className="main-layout-tabs w-full h-full">
           <ul className="flex w-full h-full">
-            {navLinks.main.map((navLink) => (
-              <li className="group min-w-max" key={navLink.label}>
+            {navLinks.main.map(({ path, label }, index) => (
+              <li className="group min-w-max" key={index}>
                 <NavLink
-                  to={navLink.path}
-                  className="flex items-center justify-center px-5 h-full transition-colors duration-200 hover:bg-gray-light/70 group-first:border-l-0"
+                  to={path}
+                  className="flex items-center justify-center px-3.5 h-full text-[15px] transition-colors duration-200 hover:bg-gray-light/70 group-first:border-l-0 xs:px-4 sm:px-5 sm:text-base"
                 >
-                  {navLink.label}
+                  {label}
                 </NavLink>
               </li>
             ))}
