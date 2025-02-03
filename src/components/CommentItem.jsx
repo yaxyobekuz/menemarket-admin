@@ -53,6 +53,9 @@ const CommentItem = ({ data, deleteComment }) => {
     comment: description,
   } = data || {};
 
+  const splittedText = description.split(" ");
+  const isLongDescription = splittedText.some((_) => _?.length >= 32);
+
   return (
     <li className="flex items-start gap-3.5 w-full p-3.5 rounded-xl border transition-colors duration-200 hover:bg-neutral-50/70 xs:p-4 xs:gap-4 sm:p-5 sm:gap-5">
       {/* User avatar */}
@@ -64,7 +67,7 @@ const CommentItem = ({ data, deleteComment }) => {
       />
 
       {/* details */}
-      <div className="w-full space-y-1.5">
+      <div className="space-y-1.5 w-[calc(100%-54px)] xs:w-[calc(100%-60px)] sm:w-[calc(100%-68px)]">
         <div className="flex items-center justify-between">
           <h3
             aria-label="Author name"
@@ -96,7 +99,11 @@ const CommentItem = ({ data, deleteComment }) => {
         </div>
 
         {/* description */}
-        <p className="text-neutral-400 text-sm xs:text-base">{description}</p>
+        <p className="text-neutral-400 text-sm xs:text-base">
+          {isLongDescription
+            ? "Matn uzunligi belgilangan miqdordan oshib ketgani sababli yashirildi."
+            : description}
+        </p>
       </div>
     </li>
   );
