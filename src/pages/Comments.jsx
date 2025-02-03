@@ -97,7 +97,7 @@ const Comments = () => {
       </h1>
 
       {/* Nav tabs */}
-      <div className="flex justify-between w-full">
+      <div className="flex flex-col justify-between gap-5 w-full sm:flex-row">
         <Tabs name="comments" />
 
         {/* Filter comments by rating */}
@@ -119,7 +119,7 @@ const Comments = () => {
 
       {/* Comments */}
       {!isLoading && !hasError && filteredComments?.length >= 0 && (
-        <ul className="grid grid-cols-2 gap-5">
+        <ul className="grid grid-cols-1 gap-5 lg:grid-cols-2">
           {filteredComments.map((comment, index) => (
             <CommentItem
               key={index}

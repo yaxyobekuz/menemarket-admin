@@ -68,7 +68,7 @@ const Blogs = () => {
 
       {/* Blogs */}
       {!isLoading && !hasError && filteredBlogs?.length >= 0 && (
-        <ul className="grid grid-cols-6 gap-5">
+        <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6">
           {filteredBlogs.map((blogs) => (
             <BlogsItem
               data={blogs}
