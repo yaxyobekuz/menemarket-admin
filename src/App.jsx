@@ -40,7 +40,7 @@ const App = () => {
           <Route path="streams" element={<Streams />} />
           <Route path="profile" element={<Profile />} />
           <Route path="comments" element={<Comments />} />
-          <Route path="products/:s?" element={<Products />} />
+          <Route path="products" element={<Products />} />
           <Route path="users/create-worker" element={<CreateWorker />} />
         </Route>
         <Route path="/login" element={<Login />} />
