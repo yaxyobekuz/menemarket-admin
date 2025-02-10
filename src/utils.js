@@ -63,3 +63,10 @@ export const getAvatarByIndex = (gender = "default", index = 0) => {
 export const extractNumbers = (text = "") => {
   return text.replace(/\D/g, "");
 };
+
+export const extractIdFromUrl = (name, url) => {
+  const id = url.split(
+    `https://nyc3.digitaloceanspaces.com/menemarket/${name}/`
+  );
+  return id?.length === 2 ? id[1] : null;
+};
