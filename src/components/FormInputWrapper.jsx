@@ -8,6 +8,7 @@ import { InputMask } from "@react-input/mask";
 
 const FormInputWrapper = ({
   id,
+  min = 0,
   label = "",
   as = "input",
   type = "text",
@@ -41,6 +42,7 @@ const FormInputWrapper = ({
           name={name}
           id={inputId}
           value={value}
+          required={required}
           disabled={disabled}
           maxLength={maxLength}
           placeholder={placeholder}
@@ -112,6 +114,7 @@ const FormInputWrapper = ({
 
     return (
       <input
+        min={min}
         type={type}
         name={name}
         id={inputId}

@@ -10,7 +10,7 @@ import starIcon from "@/assets/images/icons/mono-star-filled.svg";
 
 const ProductItem = ({ data = {}, deleteProduct }) => {
   const { title, images, price, _id: id } = data || {};
-  const image = images ? images[0] : "";
+  const image = images ? images[0]?.medium : "";
 
   return (
     <li className="relative">
@@ -65,8 +65,8 @@ const ProductItem = ({ data = {}, deleteProduct }) => {
         {/* bottom */}
 
         <DeleteAlertDialog
-          action={deleteProduct}
           title="Mahsulotni o'chirish"
+          action={() => deleteProduct(id)}
           description={
             <>
               <span>Siz haqiqatdan ham </span>
