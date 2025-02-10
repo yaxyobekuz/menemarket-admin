@@ -13,6 +13,14 @@ const productService = {
     }
   },
 
+  createProduct: async (data) => {
+    try {
+      return await api.post(endpoints.createProduct, data);
+    } catch (err) {
+      throw err;
+    }
+  },
+
   getProduct: async (id) => {
     try {
       return await api.get(endpoints.getProduct(id));

@@ -31,6 +31,10 @@ const apiEndpoints = {
   getOrders: "api/orders",
   createOrder: (id) => `api/orders/${id}`,
 
+  // Images
+  deleteImage: (id) => `files/${id}`,
+  uploadProductImage: "files/upload/product",
+
   // Comments
   getComments: "api/comments",
   deleteComment: (id) => `api/comments/${id}`,
@@ -38,6 +42,7 @@ const apiEndpoints = {
 
   // Products
   getProducts: "api/products",
+  createProduct: "api/products",
   getProduct: (id) => `api/products/${id}`,
   deleteProduct: (id) => `api/products/${id}`,
   getProductComments: (id) => `api/comments/product/${id}`,
