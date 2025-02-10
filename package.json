@@ -28,6 +28,7 @@
     "react-hot-toast": "^2.5.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2",
+    "react-wavify": "^1.11.1",
     "shadcn-ui": "^0.9.4",
     "swiper": "^11.1.15",
     "tailwind-merge": "^2.6.0",
