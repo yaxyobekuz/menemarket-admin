@@ -1,55 +1,59 @@
 const categories = [
   {
-    title: "Kiyimlar",
-    link: "All",
+    label: "Kiyimlar",
+    name: "all",
   },
   {
-    title: "Bolalar uchun mahsulotlar",
-    link: "childrens-items",
+    label: "Bolalar uchun mahsulotlar",
+    name: "childrens-items",
   },
   {
-    title: "Maishiy texnikalar",
-    link: "household-kitchen-technology",
+    label: "Maishiy texnikalar",
+    name: "household-kitchen-technology",
   },
   {
-    title: "Salomatlik",
-    link: "health",
+    label: "Salomatlik",
+    name: "health",
   },
   {
-    title: "Parfumeriya",
-    link: "perfumery",
+    label: "Parfumeriya",
+    name: "perfumery",
   },
   {
-    title: "Aksessuarlar",
-    link: "accessories",
+    label: "Aksessuarlar",
+    name: "accessories",
   },
   {
-    title: "Avtomobil jihozlari",
-    link: "car-accessories",
+    label: "Avtomobil jihozlari",
+    name: "car-accessories",
   },
   {
-    title: "Qurilish jihozlari",
-    link: "construction-equipment",
+    label: "Qurilish jihozlari",
+    name: "construction-equipment",
   },
   {
-    title: "Oziq-ovqat mahsulotlari",
-    link: "food-products",
+    label: "Oziq-ovqat mahsulotlari",
+    name: "food-products",
   },
   {
-    title: "Hayvonlar uchun mhsulotlar",
-    link: "animals-products",
+    label: "Hayvonlar uchun mhsulotlar",
+    name: "animals-products",
   },
   {
-    title: "Sport uchun mahsulotlar",
-    link: "sports-equipment",
+    label: "Sport uchun mahsulotlar",
+    name: "sports-equipment",
   },
   {
-    title: "Sevimli mashg'ulot va ijodkorlik",
-    link: "art",
+    label: "Sevimli mashg'ulot va ijodkorlik",
+    name: "art",
   },
   {
-    title: "Kitoblar",
-    link: "books",
+    label: "Kitoblar",
+    name: "books",
+  },
+  {
+    label: "Boshqa",
+    name: "other",
   },
 ];
 
