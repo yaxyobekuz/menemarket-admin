@@ -28,6 +28,7 @@ import Settings from "./pages/Settings";
 import Contests from "./pages/Contests";
 import DonationBox from "./pages/DonationBox";
 import CreateWorker from "./pages/CreateWorker";
+import CreateProduct from "./pages/CreateProduct";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="contests" element={<Contests />} />
           <Route path="settings" element={<Settings />} />
           <Route path="donation-box" element={<DonationBox />} />
+          <Route path="products/create" element={<CreateProduct />} />
           <Route path="users/create-worker" element={<CreateWorker />} />
         </Route>
         <Route path="/login" element={<Login />} />
