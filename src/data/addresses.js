@@ -1,58 +1,58 @@
 export default [
   {
-    name: "Toshkent shahri",
+    label: "Toshkent shahri",
     value: 1,
   },
   {
-    name: "Toshkent viloyati",
+    label: "Toshkent viloyati",
     value: 2,
   },
   {
-    name: "Andijon viloyati",
+    label: "Andijon viloyati",
     value: 3,
   },
   {
-    name: "Buxoro viloyati",
+    label: "Buxoro viloyati",
     value: 4,
   },
   {
-    name: "Farg'ona viloyati",
+    label: "Farg'ona viloyati",
     value: 5,
   },
   {
-    name: "Jizzax viloyati",
+    label: "Jizzax viloyati",
     value: 6,
   },
   {
-    name: "Xorazm viloyati",
+    label: "Xorazm viloyati",
     value: 7,
   },
   {
-    name: "Namangan viloyati",
+    label: "Namangan viloyati",
     value: 8,
   },
   {
-    name: "Navoiy viloyati",
+    label: "Navoiy viloyati",
     value: 9,
   },
   {
-    name: "Qashqadaryo viloyati",
+    label: "Qashqadaryo viloyati",
     value: 10,
   },
   {
-    name: "Qoraqalpog'iston Respublikasi",
+    label: "Qoraqalpog'iston Respublikasi",
     value: 11,
   },
   {
-    name: "Samarqand viloyati",
+    label: "Samarqand viloyati",
     value: 12,
   },
   {
-    name: "Sirdaryo viloyati",
+    label: "Sirdaryo viloyati",
     value: 13,
   },
   {
-    name: "Surxondaryo viloyati",
+    label: "Surxondaryo viloyati",
     value: 14,
   },
 ];

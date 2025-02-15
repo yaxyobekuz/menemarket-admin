@@ -10,6 +10,7 @@ import TruncatedCell from "./TruncatedCell";
 
 // Utils
 import { extractNumbers, formatDate, getPercentageBgColor } from "@/utils";
+import orderStatuses from "@/data/orderStatuses";
 
 const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
   const {
@@ -23,7 +24,13 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
   } = data || {};
 
   const formattedAddress =
-    addresses.find(({ value }) => value == address)?.name || "Mavjud emas";
+    addresses.find(({ value }) => value == address)?.label || address;
+
+  const formattedStatus =
+    orderStatuses.find(({ value }) => value == status)?.label || status;
+
+  const statusColor =
+    orderStatuses.find(({ value }) => value == status)?.color || "black";
 
   return (
     <tr className="group h-12 bg-neutral-50 even:bg-white">
@@ -35,7 +42,7 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Address */}
       <td>
-        <address>{formattedAddress}</address>
+        <address>{formattedAddress?.label}</address>
       </td>
 
       {/* Phone */}
@@ -46,7 +53,7 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
       </td>
 
       {/* Status */}
-      <td>{status}</td>
+      <td style={{ color: statusColor }}>{formattedStatus}</td>
 
       {/* Product ID */}
       <td>
