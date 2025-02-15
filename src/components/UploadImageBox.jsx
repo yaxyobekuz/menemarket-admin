@@ -26,6 +26,7 @@ const UploadImageBox = ({
   disabled,
   onUploadImage,
   className = "",
+  multiple = true,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadedImages, setUploadedImages] = useState([]);
@@ -34,7 +35,7 @@ const UploadImageBox = ({
 
   const handleFileInputChange = (e) => {
     const files = e.target.files;
-    if (files?.length <= 0 || isLoading || disabled) return;
+    if (disabled || isLoading || files?.length <= 0) return;
 
     setIsLoading(true);
     let maxProgress = 0;
@@ -111,9 +112,9 @@ const UploadImageBox = ({
 
         {/* File input */}
         <input
-          multiple
           type="file"
           className="hidden"
+          multiple={multiple}
           disabled={isLoading || disabled}
           onChange={handleFileInputChange}
           accept="image/jpg, image/jpeg, image/png"

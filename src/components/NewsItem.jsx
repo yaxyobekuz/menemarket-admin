@@ -12,11 +12,11 @@ const NewsItem = ({ data = {}, deleteNews }) => {
       {/* Image wrapper */}
       <div className="relative overflow-hidden mb-1.5 rounded-xl">
         <img
-          src={image}
           width={293}
           height={219}
           loading="lazy"
           alt={data.title}
+          src={image?.medium}
           className="w-full h-auto aspect-[4/3] object-cover bg-white"
         />
       </div>

@@ -67,7 +67,7 @@ const Products = () => {
       {/* Nav tabs */}
       <Tabs name="products" />
 
-      {/* Comments */}
+      {/* Products */}
       {!isLoading && !hasError && filteredProducts?.length >= 0 && (
         <ul className="grid grid-cols-2 gap-3.5 xs:gap-4 sm:gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 3xl:grid-cols-8">
           {filteredProducts.map((product) => (
