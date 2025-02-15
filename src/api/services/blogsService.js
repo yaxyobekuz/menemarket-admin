@@ -13,6 +13,14 @@ const blogsService = {
     }
   },
 
+  createBlog: async (data) => {
+    try {
+      return await api.post(endpoints.createBlog, data);
+    } catch (err) {
+      throw err;
+    }
+  },
+
   getBlogsById: async (id) => {
     try {
       return await api.get(endpoints.getBlogById(id));

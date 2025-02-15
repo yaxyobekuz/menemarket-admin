@@ -21,6 +21,14 @@ const newsService = {
     }
   },
 
+  createNews: async (data) => {
+    try {
+      return await api.post(endpoints.createNews, data);
+    } catch (err) {
+      throw err;
+    }
+  },
+
   deleteNews: async (id) => {
     try {
       return await api.delete(endpoints.deleteNews(id));
