@@ -1,4 +1,7 @@
 const apiEndpoints = {
+  // Donates
+  getDonates: "api/donate/all",
+
   // Payments
   createPayment: "api/payments",
 
@@ -15,6 +18,7 @@ const apiEndpoints = {
 
   // News
   getNews: "api/news",
+  createNews: "api/news",
   deleteNews: (id) => `api/news/${id}`,
   getNewsById: (id) => `api/news/${id}`,
 
@@ -24,6 +28,7 @@ const apiEndpoints = {
 
   // Blogs
   getBlogs: "api/blogs",
+  createBlog: "api/blogs",
   deleteBlogs: (id) => `api/blogs/${id}`,
   getBlogById: (id) => `api/blogs/${id}`,
 
@@ -32,6 +37,7 @@ const apiEndpoints = {
   createOrder: (id) => `api/orders/${id}`,
 
   // Images
+  uploadImage: "files/upload/media",
   deleteImage: (id) => `files/${id}`,
   uploadProductImage: "files/upload/product",
 
