@@ -28,7 +28,7 @@
   }
 
   textarea {
-    @apply py-2.5 min-h-40 max-h-96 xs:min-h-32;
+    @apply !min-h-64 max-h-96 py-2.5 xs:min-h-32;
   }
 
   :root {

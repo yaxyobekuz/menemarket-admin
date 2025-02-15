@@ -12,7 +12,7 @@ const MainLayout = () => {
   useEffect(() => window.scrollTo(0, 0), [location.pathname]);
 
   return (
-    <div className="flex flex-col min-h-screen pb-16 md:pb-0">
+    <div className="flex flex-col min-h-screen">
       {/* Header */}
       <Header />
 

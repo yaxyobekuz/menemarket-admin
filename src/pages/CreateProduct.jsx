@@ -82,7 +82,7 @@ const CreateProduct = () => {
       <PageMessage title="Mahsulot yaratildi!" sticker={likeOutSticker} />
     </div>
   ) : (
-    <div className="container pt-6 space-y-7">
+    <div className="container py-6 space-y-7">
       <h1>Mahsulot yaratish</h1>
 
       {/* Nav tabs */}
