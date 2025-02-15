@@ -135,4 +135,17 @@ export default {
       label: "Yaratish",
     },
   ],
+
+  donate: [
+    {
+      end: true,
+      path: "/donation-box",
+      label: "Asosiy",
+    },
+    {
+      disabled: true,
+      path: "/donation-box/withdraw",
+      label: "Mablag' yechish",
+    },
+  ],
 };
