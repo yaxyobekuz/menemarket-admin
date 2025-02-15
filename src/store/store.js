@@ -8,6 +8,7 @@ import usersSlice from "./features/usersSlice";
 import modalSlice from "./features/modalSlice";
 import ordersSlice from "./features/ordersSlice";
 import streamsSlice from "./features/streamsSlice";
+import donatesSlice from "./features/donatesSlice";
 import productsSlice from "./features/productsSlice";
 import commentsSlice from "./features/commentsSlice";
 
@@ -20,6 +21,7 @@ export default configureStore({
     modal: modalSlice,
     orders: ordersSlice,
     streams: streamsSlice,
+    donates: donatesSlice,
     products: productsSlice,
     comments: commentsSlice,
   },
