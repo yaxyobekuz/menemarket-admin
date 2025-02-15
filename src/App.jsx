@@ -26,9 +26,11 @@ import Products from "./pages/Products";
 import Comments from "./pages/Comments";
 import Settings from "./pages/Settings";
 import Contests from "./pages/Contests";
+import CreateNews from "./pages/CreateNews";
 import DonationBox from "./pages/DonationBox";
 import CreateWorker from "./pages/CreateWorker";
 import CreateProduct from "./pages/CreateProduct";
+import CreateBlog from "./pages/CreateBlog";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -47,6 +49,8 @@ const App = () => {
           <Route path="products" element={<Products />} />
           <Route path="contests" element={<Contests />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="news/create" element={<CreateNews />} />
+          <Route path="blogs/create" element={<CreateBlog />} />
           <Route path="donation-box" element={<DonationBox />} />
           <Route path="products/create" element={<CreateProduct />} />
           <Route path="users/create-worker" element={<CreateWorker />} />
