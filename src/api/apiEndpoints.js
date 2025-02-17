@@ -2,14 +2,15 @@ const apiEndpoints = {
   // Donates
   getDonates: "api/donate/all",
 
-  // Payments
-  createPayment: "api/payments",
-
   // Auth
   login: "login",
   logout: "logout",
   getUserProfile: "profile",
   verifyOtp: "api/users/verifyOTP",
+
+  // Payments
+  createPayment: "api/payments",
+  getPayments: "api/payments/admin",
 
   // Users
   getUsers: "api/users",

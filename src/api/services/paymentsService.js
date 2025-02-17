@@ -5,9 +5,9 @@ import api from "../axiosConfig";
 import endpoints from "../apiEndpoints";
 
 const paymentService = {
-  createPayment: async (data) => {
+  getPayments: async () => {
     try {
-      return await api.post(endpoints.createPayment, data);
+      return await api.get(endpoints.getPayments);
     } catch (err) {
       throw err;
     }
