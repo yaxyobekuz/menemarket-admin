@@ -25,12 +25,13 @@ import Streams from "./pages/Streams";
 import Products from "./pages/Products";
 import Comments from "./pages/Comments";
 import Settings from "./pages/Settings";
+import Payments from "./pages/Payments";
 import Contests from "./pages/Contests";
+import CreateBlog from "./pages/CreateBlog";
 import CreateNews from "./pages/CreateNews";
 import DonationBox from "./pages/DonationBox";
 import CreateWorker from "./pages/CreateWorker";
 import CreateProduct from "./pages/CreateProduct";
-import CreateBlog from "./pages/CreateBlog";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -46,6 +47,7 @@ const App = () => {
           <Route path="streams" element={<Streams />} />
           <Route path="profile" element={<Profile />} />
           <Route path="comments" element={<Comments />} />
+          <Route path="payments" element={<Payments />} />
           <Route path="products" element={<Products />} />
           <Route path="contests" element={<Contests />} />
           <Route path="settings" element={<Settings />} />
