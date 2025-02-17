@@ -30,6 +30,7 @@ const UserItem = ({ data = {}, index = 0, isScrolled, deleteUser }) => {
   const handleDeleteUser = () => (canDelete ? deleteUser(id) : null);
   const formattedRole =
     roles.find(({ value }) => value == role?.toLowerCase())?.name ||
+    role ||
     "Mavjud emas";
 
   return (
@@ -41,7 +42,7 @@ const UserItem = ({ data = {}, index = 0, isScrolled, deleteUser }) => {
       <TruncatedCell>{id}</TruncatedCell>
 
       {/* First Name */}
-      <TruncatedCell trunc="line-clamp-2">
+      <TruncatedCell trunc="2">
         <Link to={`/users/user/${id}`} className="primary-link">
           {firstName}
         </Link>

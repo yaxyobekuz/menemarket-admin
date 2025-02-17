@@ -1,18 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// Data
-import addresses from "@/data/addresses";
-
 // Components
 import StickyCell from "./StickyCell";
 import TruncatedCell from "./TruncatedCell";
 
-// Utils
-import { extractNumbers, formatDate, getPercentageBgColor } from "@/utils";
+// Data
+import addresses from "@/data/addresses";
 import orderStatuses from "@/data/orderStatuses";
 
+// Utils
+import { extractNumbers, formatDate, getPercentageBgColor } from "@/utils";
+
 const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
+  let level = 0;
   const {
     status,
     client_mobile: tel,
@@ -32,17 +33,37 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
   const statusColor =
     orderStatuses.find(({ value }) => value == status)?.color || "black";
 
+  // Update level
+  const addressNumber = Number(address) || -1;
+  const firstNameLength = firstName?.length || 0;
+  const telLength = extractNumbers(tel)?.length || 0;
+
+  if (telLength === 12 || telLength === 9) level += 20;
+  if (addressNumber > 0 && addressNumber < 15) level += 20;
+  if (telLength === 12 && firstNameLength > 4) level += 10;
+  if (firstNameLength > 3 && firstNameLength < 24) level += 20;
+  if (
+    telLength === 12 &&
+    firstNameLength > 4 &&
+    firstNameLength < 18 &&
+    addressNumber > 0 &&
+    addressNumber < 15
+  ) {
+    level += 20;
+  }
+  if (telLength < 8 || !telLength) level = 0;
+
   return (
     <tr className="group h-12 bg-neutral-50 even:bg-white">
       {/* Index */}
       <StickyCell children={index} isActive={isScrolled} />
 
       {/* User */}
-      <TruncatedCell trunc="line-clamp-2">{firstName}</TruncatedCell>
+      <TruncatedCell trunc="2">{firstName}</TruncatedCell>
 
       {/* Address */}
       <td>
-        <address>{formattedAddress?.label}</address>
+        <address>{formattedAddress}</address>
       </td>
 
       {/* Phone */}
@@ -71,10 +92,10 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
       <td>
         <div
           className={`${getPercentageBgColor(
-            10
+            level
           )} flex items-center justify-center w-11 h-6 m-auto rounded-full text-white text-sm`}
         >
-          {10}%
+          {level}%
         </div>
       </td>
     </tr>

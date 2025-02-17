@@ -1,11 +1,7 @@
-const TruncatedCell = ({
-  children,
-  className = "",
-  trunc = "line-clamp-1",
-}) => {
+const TruncatedCell = ({ children, className = "", trunc = "1" }) => {
   return (
     <td className={`text-center ${className}`}>
-      <div className={trunc}>{children}</div>
+      <div className={`line-clamp-${trunc}`}>{children}</div>
     </td>
   );
 };
