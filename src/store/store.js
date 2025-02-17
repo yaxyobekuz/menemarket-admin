@@ -11,6 +11,7 @@ import streamsSlice from "./features/streamsSlice";
 import donatesSlice from "./features/donatesSlice";
 import productsSlice from "./features/productsSlice";
 import commentsSlice from "./features/commentsSlice";
+import paymentsSlice from "./features/paymentsSlice";
 
 export default configureStore({
   reducer: {
@@ -22,6 +23,7 @@ export default configureStore({
     orders: ordersSlice,
     streams: streamsSlice,
     donates: donatesSlice,
+    payments: paymentsSlice,
     products: productsSlice,
     comments: commentsSlice,
   },
