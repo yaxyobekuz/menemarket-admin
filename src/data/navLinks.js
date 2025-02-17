@@ -148,4 +148,17 @@ export default {
       label: "Mablag' yechish",
     },
   ],
+
+  payments: [
+    {
+      end: true,
+      path: "/payments",
+      label: "Asosiy",
+    },
+    {
+      disabled: true,
+      path: "/payments/history",
+      label: "Tarix",
+    },
+  ],
 };
