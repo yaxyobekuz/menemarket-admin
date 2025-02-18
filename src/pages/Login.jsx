@@ -1,5 +1,9 @@
 import React, { useCallback, useState } from "react";
 
+// Api
+import api from "@/api/axiosConfig";
+import apiEndpoints from "@/api/apiEndpoints";
+
 // Toaster (For notification)
 import { notification } from "@/notification";
 
@@ -9,7 +13,13 @@ import LoadingText from "@/components/LoadingText";
 // Services
 import authService from "@/api/services/authService";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { updateUser } from "../store/features/userSlice";
+import FormInputWrapper from "@/components/FormInputWrapper";
+
 const Login = () => {
+  const dispatch = useDispatch();
   const token = localStorage.getItem("token");
   const [formData, setFormData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -24,6 +34,29 @@ const Login = () => {
     }));
   }, []);
 
+  const loadUserData = (token) => {
+    api
+      .get(apiEndpoints.getUserProfile, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((data) => {
+        const { status: role } = data;
+
+        if (!["admin", "owner"].includes(role)) {
+          return notification.error(
+            "Kirish uchun sizning huquqingiz yetarli emas"
+          );
+        }
+
+        dispatch(updateUser(data));
+
+        // Save JWT token to local storage
+        localStorage.setItem("token", token);
+      })
+      .catch(() => notification.error("Ma'lumotlarni yuklashda xatolik"))
+      .finally(() => setIsLoading(false));
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -32,60 +65,43 @@ const Login = () => {
       .login(formData)
       .then(({ success, token }) => {
         if (!success) return notification.error("Noma'lum xatolik yuz berdi");
-
-        // Save JWT token to local storage
-        localStorage.setItem("token", token);
-
-        // Navigate to homepage
-        // window.location.pathname = "/";
+        loadUserData(token);
       })
-      .catch(() => notification.error("E-pochta yoki parol noto'g'ri"))
-      .finally(() => setIsLoading(false));
+      .catch(() => {
+        setIsLoading(false);
+        notification.error("E-pochta yoki parol noto'g'ri");
+      });
   };
 
   return (
     <div className="flex items-center justify-center p-4 w-screen h-screen">
-      <div className="max-w-md">
+      <div className="max-w-sm w-full">
         {/* Title */}
         <h1 className="text-center mb-5 text-xl sm:text-2xl">Kirish</h1>
 
         {/* Form */}
         <form onSubmit={handleLogin} className="w-full space-y-5">
           {/* Email */}
-          <div className="space-y-1.5">
-            <label className="ml-1.5" htmlFor="email">
-              E-pochta *
-            </label>
-
-            {/* Input */}
-            <input
-              required
-              id="email"
-              type="email"
-              name="email"
-              className="h-11 px-3.5"
-              placeholder="Misol@gmail.com"
-              onChange={(e) => handleInputChange("email", e.target.value)}
-            />
-          </div>
+          <FormInputWrapper
+            required
+            id="email"
+            type="email"
+            name="email"
+            label="E-pochta *"
+            placeholder="Misol@gmail.com"
+            onChange={(value) => handleInputChange("email", value)}
+          />
 
           {/* Password */}
-          <div className="space-y-1.5">
-            <label className="ml-1.5" htmlFor="password">
-              Parol *
-            </label>
-
-            {/* Input */}
-            <input
-              required
-              id="password"
-              name="password"
-              type="password"
-              className="h-11 px-3.5"
-              placeholder="Kamida 8 ta belgi"
-              onChange={(e) => handleInputChange("password", e.target.value)}
-            />
-          </div>
+          <FormInputWrapper
+            required
+            id="password"
+            type="password"
+            name="password"
+            label="Parol *"
+            placeholder="Kamida 8 ta belgi"
+            onChange={(value) => handleInputChange("password", value)}
+          />
 
           {/* Submit button */}
           <button
