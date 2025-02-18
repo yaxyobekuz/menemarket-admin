@@ -161,4 +161,17 @@ export default {
       label: "Tarix",
     },
   ],
+
+  profile: [
+    {
+      end: true,
+      path: "/profile",
+      label: "Asosiy",
+    },
+    {
+      disabled: true,
+      path: "/profile/edit",
+      label: "Tahrirlash",
+    },
+  ],
 };
