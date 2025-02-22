@@ -66,7 +66,7 @@ const CreateBlog = () => {
       <h1>Blog yaratish</h1>
 
       {/* Nav tabs */}
-      <Tabs name="news" />
+      <Tabs name="blogs" />
 
       <div className="flex flex-col gap-5 w-full lg:flex-row">
         {/* Upload images */}
