@@ -23,7 +23,7 @@ import FormInputWrapper from "@/components/FormInputWrapper";
 import likeOutSticker from "../assets/stickers/like-out.json";
 
 const CreateProduct = () => {
-  const [isCrated, setIsCrated] = useState(false);
+  const [isCreated, setIsCreated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ type: categories[0].name });
 
@@ -53,7 +53,7 @@ const CreateProduct = () => {
     // Format tags
     const formattedTags = formData?.tags
       ?.split(",")
-      ?.map((tag) => tag?.toLowerCase()?.replace(" ", "-"))
+      ?.map((tag) => tag?.trim()?.toLowerCase()?.replaceAll(" ", "-"))
       ?.filter((tag) => tag?.length > 2);
 
     // New formatted form data
@@ -69,15 +69,15 @@ const CreateProduct = () => {
     productService
       .createProduct(formattedFormData)
       .then(() => {
-        setIsCrated(true);
+        setIsCreated(true);
         setFormData({ type: categories[0].name });
-        setTimeout(() => setIsCrated(false), 5000);
+        setTimeout(() => setIsCreated(false), 5000);
       })
       .catch(() => notification.error("Mahsulotni yaratishda xatolik"))
       .finally(() => setIsLoading(false));
   };
 
-  return isCrated ? (
+  return isCreated ? (
     <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2">
       <PageMessage title="Mahsulot yaratildi!" sticker={likeOutSticker} />
     </div>
@@ -199,7 +199,10 @@ const CreateProduct = () => {
           />
 
           {/* Submit btn */}
-          <button disabled={isLoading} className="btn-primary w-full h-11 xs:w-56">
+          <button
+            disabled={isLoading}
+            className="btn-primary w-full h-11 xs:w-56"
+          >
             <LoadingText text="Yaratish" loader={isLoading} />
           </button>
         </form>

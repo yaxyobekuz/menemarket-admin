@@ -14,7 +14,7 @@ const Tabs = ({ name = "" }) => {
             <li key={index}>
               {disabled ? (
                 <span
-                  className={`${className} opacity-35 cursor-default select-none`}
+                  className={`${className} opacity-35 cursor-default select-none text-sm xs:text-base`}
                 >
                   {label}
                 </span>
@@ -22,7 +22,7 @@ const Tabs = ({ name = "" }) => {
                 <NavLink
                   end={end}
                   to={path}
-                  className={`${className} hover:bg-gray-light/50`}
+                  className={`${className} text-sm hover:bg-gray-light/50 xs:text-base`}
                 >
                   {label}
                 </NavLink>
