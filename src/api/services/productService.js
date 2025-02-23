@@ -21,6 +21,14 @@ const productService = {
     }
   },
 
+  updateProduct: async (id, data) => {
+    try {
+      return await api.put(endpoints.updateProduct(id), data);
+    } catch (err) {
+      throw err;
+    }
+  },
+
   getProduct: async (id) => {
     try {
       return await api.get(endpoints.getProduct(id));

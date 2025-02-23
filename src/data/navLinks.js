@@ -77,7 +77,6 @@ export default {
       label: "Yaratish",
     },
     {
-      disabled: true,
       path: "/products/edit",
       label: "Tahrirlash",
     },

@@ -38,8 +38,8 @@ const apiEndpoints = {
   createOrder: (id) => `api/orders/${id}`,
 
   // Images
+  deleteImage: "files/delete",
   uploadImage: "files/upload/media",
-  deleteImage: (id) => `files/${id}`,
   uploadProductImage: "files/upload/product",
 
   // Comments
@@ -51,6 +51,7 @@ const apiEndpoints = {
   getProducts: "api/products",
   createProduct: "api/products",
   getProduct: (id) => `api/products/${id}`,
+  updateProduct: (id) => `api/products/${id}`,
   deleteProduct: (id) => `api/products/${id}`,
   getProductComments: (id) => `api/comments/product/${id}`,
 };
