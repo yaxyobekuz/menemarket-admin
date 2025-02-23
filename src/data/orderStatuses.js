@@ -10,6 +10,11 @@ export default [
     color: "red",
   },
   {
+    label: "Qaytarilgan",
+    value: "rejected",
+    color: "red",
+  },
+  {
     label: "Muvaffaqiyatli",
     value: "success",
     color: "#27d627",

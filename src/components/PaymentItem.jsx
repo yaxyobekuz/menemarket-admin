@@ -29,6 +29,10 @@ const PaymentItem = ({ data = {}, index = 0, isScrolled }) => {
 
   const { name: firstName, status: role, _id: userId, email } = user || {};
 
+  const formattedCardNumber = extractNumbers(cardNumber)
+    ?.replace(/(\d{4})/g, "$1 ")
+    ?.trim();
+
   const formattedRole =
     roles.find(({ value }) => value == role?.toLowerCase())?.name ||
     role ||
@@ -72,7 +76,7 @@ const PaymentItem = ({ data = {}, index = 0, isScrolled }) => {
           text={extractNumbers(cardNumber)}
           notificationText="Karta raqamdan nusxa olindi"
         >
-          {cardNumber}
+          {formattedCardNumber}
         </CopyButton>
       </td>
 

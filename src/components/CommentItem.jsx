@@ -1,5 +1,7 @@
-import avatars from "@/data/avatars";
 import React from "react";
+
+// Data
+import avatars from "@/data/avatars";
 
 // Components
 import Icon from "./Icon";
@@ -57,7 +59,7 @@ const CommentItem = ({ data, deleteComment }) => {
   const isLongDescription = splittedText.some((_) => _?.length >= 32);
 
   return (
-    <li className="flex items-start gap-3.5 w-full p-3.5 rounded-xl border transition-colors duration-200 hover:bg-neutral-50/70 xs:p-4 xs:gap-4 sm:p-5 sm:gap-5">
+    <li className="flex items-start gap-3.5 w-full bg-neutral-50/70 p-3.5 rounded-xl border transition-colors duration-200 hover:bg-neutral-50 xs:p-4 xs:gap-4 sm:p-5 sm:gap-5">
       {/* User avatar */}
       <Icon
         size={48}
