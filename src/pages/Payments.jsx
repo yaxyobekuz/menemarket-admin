@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Tabs from "@/components/Tabs";
 import Icon from "@/components/Icon";
 import DotsLoader from "@/components/DotsLoader";
+import ButtonTabs from "@/components/ButtonTabs";
 import PaymentsTable from "@/components/PaymentsTable";
 
 // Images
@@ -37,6 +38,12 @@ const Payments = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const handleFilterPaymentsByStatus = (value) => {
+    if (!value) return setFilteredPayments(allPayments);
+    const filtered = allPayments.filter((payment) => payment.status === value);
+    setFilteredPayments(filtered);
+  };
+
   useEffect(() => {
     if (allPayments?.length === 0) loadPayments();
     else setTimeout(() => setIsLoading(false), 300);
@@ -47,7 +54,29 @@ const Payments = () => {
       <h1>To'lovlar</h1>
 
       {/* Nav tabs */}
-      <Tabs name="payments" />
+      <div className="flex flex-wrap justify-between gap-5">
+        <Tabs name="payments" />
+
+        {/* Filter buttons */}
+        <ButtonTabs
+          disabled={isLoading || hasError}
+          onChange={handleFilterPaymentsByStatus}
+          data={[
+            {
+              label: "Kutilmoqda",
+              value: "pending",
+            },
+            {
+              label: "Muvaffaqiyatli",
+              value: "success",
+            },
+            {
+              label: "Qaytarilgan",
+              value: "rejected",
+            },
+          ]}
+        />
+      </div>
 
       {/* Payments */}
       {!isLoading && !hasError && filteredPayments?.length >= 0 && (

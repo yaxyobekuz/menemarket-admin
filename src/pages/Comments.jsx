@@ -7,6 +7,7 @@ import { notification } from "@/notification";
 import Icon from "@/components/Icon";
 import Tabs from "@/components/Tabs";
 import DotsLoader from "@/components/DotsLoader";
+import ButtonTabs from "@/components/ButtonTabs";
 import CommentItem from "@/components/CommentItem";
 
 // Images
@@ -23,7 +24,6 @@ const Comments = () => {
   const dispatch = useDispatch();
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [activeRatingIndex, setActiveRatingIndex] = useState(0);
   const allComments = useSelector((state) => state.comments.data);
   const [filteredComments, setFilteredComments] = useState(allComments || []);
 
@@ -58,30 +58,10 @@ const Comments = () => {
       .finally(() => setIsLoading(false));
   };
 
-  const filterCommentsByRating = (rating = 0) => {
-    const formattedRating = Number(rating);
-
-    if (
-      hasError ||
-      isLoading ||
-      formattedRating > 5 ||
-      formattedRating <= 0 ||
-      allComments?.length <= 0
-    ) {
-      return setActiveRatingIndex(0);
-    }
-    setActiveRatingIndex(formattedRating);
-
-    if (formattedRating === activeRatingIndex) {
-      setActiveRatingIndex(0);
-      return setFilteredComments(allComments);
-    }
-
-    const filteredComments = allComments.filter(
-      ({ rating }) => Number(rating) === formattedRating
-    );
-
-    setFilteredComments(filteredComments);
+  const filterCommentsByRating = (value) => {
+    if (!value) return setFilteredComments(allComments);
+    const filtered = allComments.filter(({ rating }) => rating === value);
+    setFilteredComments(filtered);
   };
 
   useEffect(() => {
@@ -97,24 +77,18 @@ const Comments = () => {
       </h1>
 
       {/* Nav tabs */}
-      <div className="flex flex-col justify-between gap-5 w-full sm:flex-row">
+      <div className="flex flex-wrap justify-between gap-5 w-full">
         <Tabs name="comments" />
 
         {/* Filter comments by rating */}
-        <ul className="layout-tabs flex gap-1 max-w-max bg-white p-1 rounded-xl">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <li key={index}>
-              <button
-                onClick={() => filterCommentsByRating(index + 1)}
-                className={`${
-                  activeRatingIndex === index + 1 ? "active" : ""
-                } py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200 hover:bg-gray-light/50`}
-              >
-                {index + 1}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <ButtonTabs
+          disabled={isLoading || hasError}
+          onChange={filterCommentsByRating}
+          data={Array.from({ length: 5 }).map((_, index) => {
+            const rating = index + 1;
+            return { value: rating, label: rating };
+          })}
+        />
       </div>
 
       {/* Comments */}
