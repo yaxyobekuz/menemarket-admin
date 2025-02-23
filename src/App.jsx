@@ -29,6 +29,7 @@ import Payments from "./pages/Payments";
 import Contests from "./pages/Contests";
 import CreateBlog from "./pages/CreateBlog";
 import CreateNews from "./pages/CreateNews";
+import EditProduct from "./pages/EditProduct";
 import DonationBox from "./pages/DonationBox";
 import CreateWorker from "./pages/CreateWorker";
 import CreateProduct from "./pages/CreateProduct";
@@ -56,6 +57,7 @@ const App = () => {
           <Route path="donation-box" element={<DonationBox />} />
           <Route path="products/create" element={<CreateProduct />} />
           <Route path="users/create-worker" element={<CreateWorker />} />
+          <Route path="products/edit/:productId" element={<EditProduct />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Route>

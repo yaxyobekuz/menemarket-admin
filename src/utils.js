@@ -64,9 +64,7 @@ export const extractNumbers = (text = "") => {
   return text.replace(/\D/g, "");
 };
 
-export const extractIdFromUrl = (name, url) => {
-  const id = url.split(
-    `https://nyc3.digitaloceanspaces.com/menemarket/${name}/`
-  );
+export const extractIdFromUrl = (url) => {
+  const id = url.split("https://nyc3.digitaloceanspaces.com/menemarket/");
   return id?.length === 2 ? id[1] : null;
 };
