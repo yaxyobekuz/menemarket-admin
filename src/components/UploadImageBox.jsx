@@ -27,16 +27,19 @@ const UploadImageBox = ({
   onUploadImage,
   className = "",
   multiple = true,
+  onLoad = () => {},
+  initialImages = [],
 }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [uploadedImages, setUploadedImages] = useState([]);
+  const [deletingImages, setDeletingImages] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(-10);
-  const [deletingImageIndexes, setDeletingImageIndexes] = useState([]);
+  const [uploadedImages, setUploadedImages] = useState(initialImages);
 
   const handleFileInputChange = (e) => {
     const files = e.target.files;
     if (disabled || isLoading || files?.length <= 0) return;
 
+    onLoad(true);
     setIsLoading(true);
     let maxProgress = 0;
     setUploadProgress(0);
@@ -66,31 +69,40 @@ const UploadImageBox = ({
       })
       .catch(() => notification.error("Rasm yuklashda xatolik yuz berdi!"))
       .finally(() => {
+        onLoad(false);
         setIsLoading(false);
         setUploadProgress(100);
         setTimeout(() => setUploadProgress(-10), 2000);
       });
   };
 
-  const handleDeleteImage = (url, index) => {
-    if (index === deletingImageIndexes || true) return;
-    const imageId = extractIdFromUrl("products", url);
-    if (!imageId) return notification.error("Rasmning ID raqami xato");
+  const handleDeleteImage = (id) => {
+    if (id === deletingImages || true) return;
+    const image = uploadedImages.find(({ id: _ }) => _ === id);
+    if (image) return notification.error("Rasmning ID raqami xato");
+
+    let imageIdArray = [];
+
+    Object.values(image).forEach((url) => {
+      const imageId = extractIdFromUrl(url);
+      if (imageId) imageIdArray.push(imageId);
+    });
+
+    // Form data
+    const formData = { keys: imageIdArray };
 
     // Update deleting images
-    setDeletingImageIndexes((prev) => [...prev, index]);
+    setDeletingImages((prev) => [...prev, id]);
 
     // Delete image from the server
     api
-      .delete(apiEndpoints.deleteImage(imageId))
+      .delete(apiEndpoints.deleteImage, formData)
       .then(() => {
         notification.success("Rasm muvaffaqiyatli o'chirildi");
-        setUploadedImages((prev) => prev.filter((_, i) => i !== index));
+        setUploadedImages((prev) => prev.filter((_) => _ !== id));
       })
       .catch(() => notification.error("Rasmni o'chirishda xatolik yuz berdi"))
-      .finally(() => {
-        setDeletingImageIndexes((prev) => prev.filter((i) => i !== index));
-      });
+      .finally(() => setDeletingImages((prev) => prev.filter((i) => i !== id)));
   };
 
   return (
@@ -132,26 +144,26 @@ const UploadImageBox = ({
       {/* Images */}
       {uploadedImages?.length > 0 && (
         <div className="flex flex-wrap gap-5 justify-center">
-          {uploadedImages.map((image, index) => {
+          {uploadedImages.map(({ _id: id, small: image }) => {
             return (
               <div
-                key={index}
+                key={id}
                 className={`${
-                  deletingImageIndexes.includes(index) ? "animate-pulse" : ""
+                  deletingImages.includes(id) ? "animate-pulse" : ""
                 } relative size-14`}
               >
                 {/* Image */}
                 <Icon
                   size={56}
-                  src={image.small}
+                  src={image}
                   alt="Uploaded image"
                   className="size-full object-contain bg-neutral-300 rounded"
                 />
 
                 {/* Delete button */}
                 <button
-                  onClick={() => handleDeleteImage(image, index)}
-                  disabled={deletingImageIndexes.includes(index)}
+                  onClick={() => handleDeleteImage(id)}
+                  disabled={deletingImages.includes(id)}
                   className="absolute p-1 -top-3 -right-3 transition-colors duration-200 disabled:opacity-30"
                 >
                   <Icon src={crossIcon} alt="Cross icon" />
