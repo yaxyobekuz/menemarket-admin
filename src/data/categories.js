@@ -1,7 +1,7 @@
 const categories = [
   {
     label: "Kiyimlar",
-    name: "all",
+    name: "clothes",
   },
   {
     label: "Bolalar uchun mahsulotlar",
