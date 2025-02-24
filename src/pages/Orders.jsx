@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import Tabs from "@/components/Tabs";
 import DotsLoader from "@/components/DotsLoader";
+import ButtonTabs from "@/components/ButtonTabs";
 import OrdersTable from "@/components/OrdersTable";
 
 // Services
@@ -37,6 +38,12 @@ const Orders = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const filterOrdersByStatus = (value) => {
+    if (!value) return setFilteredOrders(allOrders);
+    const filtered = allOrders.filter(({ status }) => status === value);
+    setFilteredOrders(filtered);
+  };
+
   useEffect(() => {
     if (allOrders?.length === 0) loadOrders();
     else setTimeout(() => setIsLoading(false), 300);
@@ -46,8 +53,38 @@ const Orders = () => {
     <div className="container py-6 space-y-7">
       <h1>Buyurtmalar</h1>
 
-      {/* Nav tabs */}
-      <Tabs name="orders" />
+      <div className="flex flex-wrap justify-between gap-5 w-full">
+        {/* Nav tabs */}
+        <Tabs name="orders" />
+
+        {/* Filter orders by status */}
+        <ButtonTabs
+          onChange={filterOrdersByStatus}
+          disabled={isLoading || hasError}
+          data={[
+            {
+              label: "Kutilmoqda",
+              value: "pending",
+            },
+            {
+              label: "Yetkazilmoqda",
+              value: "sent",
+            },
+            {
+              label: "Tasdiqlangan",
+              value: "success",
+            },
+            {
+              label: "Tekshirilmoqda",
+              value: "checking",
+            },
+            {
+              label: "Qaytarilgan",
+              value: "returned",
+            },
+          ]}
+        />
+      </div>
 
       {/* Orders */}
       {!isLoading && !hasError && filteredOrders?.length >= 0 && (

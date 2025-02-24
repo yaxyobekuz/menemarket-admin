@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 // Components
 import StickyCell from "./StickyCell";
@@ -25,7 +24,9 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
   } = data || {};
 
   const formattedAddress =
-    addresses.find(({ value }) => value == address)?.label || address;
+    addresses.find(({ value }) => value == address)?.label ||
+    address ||
+    "Mavjud emas!";
 
   const formattedStatus =
     orderStatuses.find(({ value }) => value == status)?.label || status;
@@ -78,9 +79,13 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Product ID */}
       <td>
-        <Link to={`/products/product/${productId}`} className="primary-link">
+        <a
+          target="_blank"
+          className="primary-link"
+          href={`https://menemarket.netlify.app/products/product/${productId}`}
+        >
           {productId}
-        </Link>
+        </a>
       </td>
 
       {/* Price */}
