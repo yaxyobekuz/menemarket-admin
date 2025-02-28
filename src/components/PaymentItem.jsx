@@ -89,6 +89,7 @@ const PaymentItem = ({ data = {}, index = 0, isScrolled }) => {
       {/* Date */}
       <td>{formatDate(timestamp)}</td>
 
+      {/* Action */}
       <td>
         <div className="flex justify-center w-full">
           <button aria-label="Reload" disabled className="btn size-11">
