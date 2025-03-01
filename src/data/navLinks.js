@@ -61,6 +61,10 @@ export default {
       label: "Asosiy",
     },
     {
+      path: "/users/workers",
+      label: "Ishchilar",
+    },
+    {
       path: "/users/create-worker",
       label: "Ishchi yaratish",
     },

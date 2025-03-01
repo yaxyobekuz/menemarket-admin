@@ -22,6 +22,7 @@ import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
 import Page404 from "./pages/Page404";
 import Streams from "./pages/Streams";
+import Workers from "./pages/Workers";
 import Products from "./pages/Products";
 import Comments from "./pages/Comments";
 import Settings from "./pages/Settings";
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="products" element={<Products />} />
           <Route path="contests" element={<Contests />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="users/workers" element={<Workers />} />
           <Route path="news/create" element={<CreateNews />} />
           <Route path="blogs/create" element={<CreateBlog />} />
           <Route path="donation-box" element={<DonationBox />} />
