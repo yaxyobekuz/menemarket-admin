@@ -13,17 +13,17 @@ const userService = {
     }
   },
 
-  logout: async () => {
+  getUsers: async () => {
     try {
-      return await api.post(endpoints.logout);
+      return await api.get(endpoints.getUsers);
     } catch (err) {
       throw err;
     }
   },
 
-  getUsers: async () => {
+  getWorkers: async () => {
     try {
-      return await api.get(endpoints.getUsers);
+      return await api.get(endpoints.getWorkers);
     } catch (err) {
       throw err;
     }
@@ -37,17 +37,9 @@ const userService = {
     }
   },
 
-  verifyOtp: async (data) => {
+  deleteUser: async (id) => {
     try {
-      return await api.post(endpoints.verifyOtp, data);
-    } catch (err) {
-      throw err;
-    }
-  },
-
-  resendOtp: async (data) => {
-    try {
-      return await api.post(endpoints.resendOtp, data);
+      return await api.delete(endpoints.deleteUser(id));
     } catch (err) {
       throw err;
     }

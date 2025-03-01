@@ -15,6 +15,7 @@ const apiEndpoints = {
   // Users
   getUsers: "api/users",
   createWorker: "api/users/worker",
+  getWorkers: "api/users/workers/all",
   deleteUser: (id) => `api/users/${id}`,
 
   // News
