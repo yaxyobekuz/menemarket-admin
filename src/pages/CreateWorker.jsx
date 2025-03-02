@@ -65,9 +65,9 @@ const Users = () => {
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         <form
           onSubmit={handleWorkerCreate}
-          className="bg-white space-y-5 p-8 pt-6 rounded-xl"
+          className="bg-white space-y-5 p-4 pt-6 rounded-xl xs:p-5 sm:p-8"
         >
-          <div className="flex items-end gap-5 w-full">
+          <div className="flex flex-col gap-5 w-full sm:flex-row">
             <FormInputWrapper
               required
               label="Ism *"
@@ -100,7 +100,7 @@ const Users = () => {
             </div>
           </div>
 
-          <div className="flex gap-5 w-full">
+          <div className="flex flex-col gap-5 w-full sm:flex-row">
             <FormInputWrapper
               required
               type="email"
@@ -131,7 +131,7 @@ const Users = () => {
         </form>
 
         {/* User data */}
-        <div className="flex items-center bg-white space-y-3.5 p-8 pt-6 rounded-xl">
+        <div className="flex items-center bg-white space-y-3.5 p-4 pt-6 rounded-xl xs:p-5 sm:p-8">
           <ul className="space-y-5">
             {/* ID */}
             <li className="flex items-center gap-3">

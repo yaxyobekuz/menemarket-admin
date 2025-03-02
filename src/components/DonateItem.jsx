@@ -5,11 +5,8 @@ import Icon from "./Icon";
 import avatars from "@/data/avatars";
 
 const DonateItem = ({ data }) => {
-  const {
-    fund: amount,
-    anonim: anonym,
-    user_id: { avatar, name, username },
-  } = data || {};
+  const { fund: amount, user_id: user, anonim: anonym } = data || {};
+  const { avatar, name, username } = user || {};
   const validAvatar = anonym ? false : avatar?.small.startsWith("https");
 
   return (
@@ -29,11 +26,13 @@ const DonateItem = ({ data }) => {
             aria-label="Author name"
             className="font-medium line-clamp-1 text-base sm:text-lg"
           >
-            {anonym ? "Anonim foydalanuvchi" : name}
+            {anonym
+              ? "Anonim foydalanuvchi"
+              : name || "Foydalanuvchi ismi mavjud emas"}
           </h3>
 
           <p className="text-neutral-500">
-            @{anonym ? "foydalanuvchi_nomi" : username}
+            @{anonym ? "foydalanuvchi_nomi" : username || "foydalanuvchi_nomi"}
           </p>
         </div>
 
