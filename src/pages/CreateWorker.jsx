@@ -1,13 +1,9 @@
 import { useCallback, useState } from "react";
 
-// Utils
-import { extractNumbers } from "@/utils";
-
 // Toaster (For notification)
 import { notification } from "@/notification";
 
 // Services
-import authService from "@/api/services/authService";
 import usersService from "@/api/services/usersService";
 
 // Components
