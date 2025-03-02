@@ -105,6 +105,10 @@ export default {
       path: "/orders",
       label: "Asosiy",
     },
+    {
+      path: "/orders/distribution",
+      label: "Taqsimlash",
+    },
   ],
 
   comments: [
