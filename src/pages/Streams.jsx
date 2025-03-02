@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+// Utils
+import { formatDate } from "@/utils";
+
 // Components
 import Tabs from "@/components/Tabs";
 import SearchBox from "@/components/SearchBox";
@@ -22,7 +25,7 @@ const Products = () => {
 
     streamService
       .getStream(streamId)
-      .then((stream) => {
+      .then(({ stream }) => {
         if (stream?.name && stream?.user && stream?.product) setStream(stream);
         else setHasError(true);
       })
@@ -66,7 +69,14 @@ const Products = () => {
                 {/* ID */}
                 <li className="flex gap-2">
                   <h3 className="font-medium">Id:</h3>
-                  <p className="text-neutral-500">{product?._id}</p>
+                  <a
+                    target="_blank"
+                    aria-label="Product link"
+                    className="primary-link text-neutral-500"
+                    href={`https://menemarket.netlify.app/products/product/${product?._id}`}
+                  >
+                    {product?._id}
+                  </a>
                 </li>
 
                 {/* Name */}
@@ -75,7 +85,7 @@ const Products = () => {
                   <p className="text-neutral-500">{product?.title}</p>
                 </li>
 
-                {/* Email */}
+                {/* Price */}
                 <li className="flex gap-2">
                   <h3 className="font-medium">Narxi:</h3>
                   <p className="text-neutral-500">
@@ -106,6 +116,14 @@ const Products = () => {
                 <li className="flex gap-2">
                   <h3 className="font-medium">E-pochta:</h3>
                   <p className="text-neutral-500">{user?.email}</p>
+                </li>
+
+                {/* Timestamp */}
+                <li className="flex gap-2">
+                  <h3 className="font-medium">Ro'yxatdan o'tgan sana:</h3>
+                  <p className="text-neutral-500">
+                    {formatDate(user?.created_at)}
+                  </p>
                 </li>
               </ul>
             </li>
