@@ -12,6 +12,14 @@ const ordersService = {
       throw err;
     }
   },
+
+  distributeOrder: async (id, data) => {
+    try {
+      return await api.put(endpoints.distributeOrder(id), data);
+    } catch (err) {
+      throw err;
+    }
+  },
 };
 
 export default ordersService;

@@ -36,7 +36,7 @@ const apiEndpoints = {
 
   // Orders
   getOrders: "api/orders",
-  createOrder: (id) => `api/orders/${id}`,
+  distributeOrder: (id) => `api/orders/${id}/send`,
 
   // Images
   deleteImage: "files/delete",
