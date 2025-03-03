@@ -53,7 +53,7 @@ const Orders = () => {
     <div className="container py-6 space-y-7">
       <h1>Buyurtmalar</h1>
 
-      <div className="flex flex-wrap justify-between gap-5 w-full">
+      <div className="flex flex-wrap justify-between gap-5 w-full text-red-400">
         {/* Nav tabs */}
         <Tabs name="orders" />
 
@@ -67,20 +67,24 @@ const Orders = () => {
               value: "pending",
             },
             {
-              label: "Yetkazilmoqda",
-              value: "sent",
-            },
-            {
-              label: "Tasdiqlangan",
-              value: "success",
-            },
-            {
               label: "Tekshirilmoqda",
               value: "checking",
             },
             {
+              label: "Yetkazilmoqda",
+              value: "sent",
+            },
+            {
+              label: "Muvaffaqiyatli",
+              value: "success",
+            },
+            {
               label: "Qaytarilgan",
               value: "returned",
+            },
+            {
+              label: "Bekor qilingan",
+              value: "canceled",
             },
           ]}
         />

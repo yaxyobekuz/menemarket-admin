@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 
+// Data
+import addresses from "@/data/addresses";
+
 // Services
 import ordersService from "@/api/services/ordersService";
 
@@ -14,15 +17,23 @@ import { updateOrders } from "@/store/features/ordersSlice";
 import Icon from "@/components/Icon";
 import Tabs from "@/components/Tabs";
 import DotsLoader from "@/components/DotsLoader";
+import ButtonTabs from "@/components/ButtonTabs";
 import DistributionOrdersTable from "@/components/DistributionOrdersTable";
 
 const DistributionOrders = () => {
   const dispatch = useDispatch();
+  const [address, setAddress] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const filterOrders = (orders) =>
-    orders?.filter(({ status }) => status === "checked");
   const allOrders = useSelector((state) => state.orders.data);
+
+  const filterOrders = (orders) => {
+    return orders?.filter(({ status, client_address: clientAddress }) => {
+      const checkedStatus = status === "checked";
+      if (!address) return checkedStatus;
+      return checkedStatus && clientAddress === address;
+    });
+  };
 
   const loadOrders = () => {
     setHasError(false);
@@ -44,7 +55,17 @@ const DistributionOrders = () => {
     <div className="container py-6 space-y-7">
       <h1>Buyurtmalarni taqsimlash</h1>
 
-      <Tabs name="orders" />
+      <div className="flex flex-wrap justify-between gap-5 w-full">
+        {/* Nav tabs */}
+        <Tabs name="orders" />
+
+        {/* Filter orders by status */}
+        <ButtonTabs
+          data={addresses}
+          onChange={setAddress}
+          disabled={isLoading || hasError}
+        />
+      </div>
 
       {/* Orders */}
       {!isLoading && !hasError && allOrders?.length >= 0 && (
