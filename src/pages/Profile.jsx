@@ -62,7 +62,7 @@ const Profile = () => {
   }, []);
 
   const { avatar, name: firstName, username, status: role } = user || {};
-  const isValidAvatarUrl = String(avatar).startsWith("https://");
+  const isValidAvatarUrl = String(avatar?.original)?.startsWith("https");
   const formattedRole =
     roles.find(({ value }) => value == role?.toLowerCase())?.name ||
     role ||
@@ -85,7 +85,7 @@ const Profile = () => {
                 <Icon
                   size={128}
                   alt="User avatar"
-                  src={isValidAvatarUrl ? avatar : avatars["default"][2]}
+                  src={isValidAvatarUrl ? avatar?.original : avatars["default"][2]}
                   className="size-12 bg-gray-light rounded-full xs:size-14 sm:size-20 md:size-32"
                 />
 
