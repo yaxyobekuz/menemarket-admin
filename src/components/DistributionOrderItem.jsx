@@ -23,11 +23,13 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
     _id: id,
     client_mobile: tel,
     total_price: price,
+    product_id: product,
     created_at: timestamp,
-    product_id: productId,
     client_name: firstName,
     client_address: address,
   } = data || {};
+
+  const productId = product ? product?._id : null;
 
   const formattedAddress =
     addresses.find(({ value }) => value == address)?.label ||
@@ -85,13 +87,17 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Product ID */}
       <td>
-        <a
-          target="_blank"
-          className="primary-link"
-          href={`https://menemarket.netlify.app/products/product/${productId}`}
-        >
-          {productId}
-        </a>
+        {productId ? (
+          <a
+            target="_blank"
+            className="primary-link"
+            href={`https://menemarket.netlify.app/products/product/${productId}`}
+          >
+            {productId}
+          </a>
+        ) : (
+          "Mavjud emas!"
+        )}
       </td>
 
       {/* Price */}
