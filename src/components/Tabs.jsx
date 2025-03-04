@@ -6,12 +6,12 @@ import navLinks from "@/data/navLinks";
 const Tabs = ({ name = "" }) => {
   return (
     <nav className="layout-tabs">
-      <ul className="flex gap-1 max-w-max bg-white p-1 rounded-xl">
+      <ul className="flex gap-1 max-w-max overflow-x-auto scroll-hidden bg-white p-1 rounded-xl">
         {navLinks[name]?.map(({ end, path, label, disabled }, index) => {
           const className =
             "inline-block py-2 px-5 rounded-lg text-[17px] text-neutral-500 transition-colors duration-200";
           return (
-            <li key={index}>
+            <li key={index} className="shrink-0">
               {disabled ? (
                 <span
                   className={`${className} opacity-35 cursor-default select-none text-sm xs:text-base`}

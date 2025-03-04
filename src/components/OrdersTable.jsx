@@ -24,6 +24,7 @@ const OrdersTable = ({ orders }) => {
               No
             </th>
             <th className="font-semibold">Foydalanuvchi</th>
+            <th className="font-semibold">Raqami</th>
             <th className="font-semibold">Manzil</th>
             <th className="font-semibold">Tel raqam</th>
             <th className="font-semibold">Holati</th>

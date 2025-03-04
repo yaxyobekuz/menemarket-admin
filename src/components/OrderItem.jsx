@@ -18,10 +18,13 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
     client_mobile: tel,
     total_price: price,
     created_at: timestamp,
-    product_id: productId,
+    product_id: product,
     client_name: firstName,
     client_address: address,
+    order_code: orderNumber,
   } = data || {};
+
+  const formattedProductId = product ? product?._id : null;
 
   const formattedAddress =
     addresses.find(({ value }) => value == address)?.label ||
@@ -62,6 +65,11 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
       {/* User */}
       <TruncatedCell trunc="2">{firstName}</TruncatedCell>
 
+      {/* Order number */}
+      <td>
+        <address>{orderNumber}</address>
+      </td>
+
       {/* Address */}
       <td>
         <address>{formattedAddress}</address>
@@ -79,13 +87,16 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Product ID */}
       <td>
-        <a
-          target="_blank"
-          className="primary-link"
-          href={`https://menemarket.netlify.app/products/product/${productId}`}
-        >
-          {productId}
-        </a>
+        {formattedProductId ? (
+          <a
+            target="_blank"
+            className="primary-link"
+            children={formattedProductId}
+            href={`https://menemarket.netlify.app/products/product/${formattedProductId}`}
+          />
+        ) : (
+          "Mavjud emas!"
+        )}
       </td>
 
       {/* Price */}
