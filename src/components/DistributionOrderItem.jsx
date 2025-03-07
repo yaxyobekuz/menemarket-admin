@@ -1,19 +1,19 @@
 import React from "react";
 
-// Components
-import StickyCell from "./StickyCell";
-import TruncatedCell from "./TruncatedCell";
-
 // Data
 import addresses from "@/data/addresses";
 import orderStatuses from "@/data/orderStatuses";
 
-// Images
-import reloadIcon from "../assets/images/icons/double-reload.svg";
-
 // Utils
-import { extractNumbers, formatDate, getPercentageBgColor } from "@/utils";
+import { extractNumbers, formatDate } from "@/utils";
+
+// Images
+import reloadIcon from "@/assets/images/icons/double-reload.svg";
+
+// Components
 import Icon from "./Icon";
+import StickyCell from "./StickyCell";
+import TruncatedCell from "./TruncatedCell";
 import DistributionOrderAlertDialog from "./DistributionOrderAlertDialog";
 
 const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
@@ -26,6 +26,7 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
     product_id: product,
     created_at: timestamp,
     client_name: firstName,
+    order_code: orderNumber,
     client_address: address,
   } = data || {};
 
@@ -69,6 +70,11 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* User */}
       <TruncatedCell trunc="2">{firstName}</TruncatedCell>
+
+      {/* Order number */}
+      <td>
+        <address>{orderNumber}</address>
+      </td>
 
       {/* Address */}
       <td>

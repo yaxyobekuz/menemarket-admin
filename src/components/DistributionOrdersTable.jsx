@@ -24,6 +24,7 @@ const DistributionOrdersTable = ({ orders }) => {
               No
             </th>
             <th className="font-semibold">Foydalanuvchi</th>
+            <th className="w-40 font-semibold">Buyurtma raqami</th>
             <th className="font-semibold">Manzil</th>
             <th className="font-semibold">Tel raqam</th>
             <th className="font-semibold">Holati</th>

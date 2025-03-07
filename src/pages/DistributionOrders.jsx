@@ -3,7 +3,11 @@ import React, { useEffect, useState } from "react";
 // Data
 import addresses from "@/data/addresses";
 
+// Toaster (For notification)
+import { notification } from "@/notification";
+
 // Services
+import userService from "@/api/services/usersService";
 import ordersService from "@/api/services/ordersService";
 
 // Images
@@ -12,6 +16,7 @@ import reloadIcon from "@/assets/images/icons/reload.svg";
 // Redux
 import { useDispatch, useSelector } from "react-redux";
 import { updateOrders } from "@/store/features/ordersSlice";
+import { updateWorkers } from "@/store/features/workersSlice";
 
 // Components
 import Icon from "@/components/Icon";
@@ -26,6 +31,8 @@ const DistributionOrders = () => {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const allOrders = useSelector((state) => state.orders.data);
+  const allWorkers = useSelector((state) => state.workers.data);
+  const [isLoadingWorkers, setIsLoadingWorkers] = useState(true);
 
   const filterOrders = (orders) => {
     return orders?.filter(({ status, client_address: clientAddress }) => {
@@ -33,6 +40,21 @@ const DistributionOrders = () => {
       if (!address) return checkedStatus;
       return checkedStatus && clientAddress === address;
     });
+  };
+
+  const loadWorkers = () => {
+    setIsLoadingWorkers(true);
+
+    userService
+      .getWorkers()
+      .then((workers) => {
+        if (!workers?.length) {
+          return notification.error("Nimadir xato ketdi");
+        }
+        dispatch(updateWorkers(workers));
+      })
+      .catch(() => setHasError(true))
+      .finally(() => setIsLoadingWorkers(false));
   };
 
   const loadOrders = () => {
@@ -46,9 +68,17 @@ const DistributionOrders = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const handleReload = () => {
+    if (allOrders?.length === 0 || !allOrders) loadOrders();
+    if (allWorkers?.length === 0 || !allWorkers) loadWorkers();
+  };
+
   useEffect(() => {
     if (allOrders?.length === 0) loadOrders();
     else setTimeout(() => setIsLoading(false), 300);
+
+    if (allWorkers?.length === 0 || !allWorkers) loadWorkers();
+    else setTimeout(() => setIsLoadingWorkers(false), 300);
   }, []);
 
   return (
@@ -68,14 +98,17 @@ const DistributionOrders = () => {
       </div>
 
       {/* Orders */}
-      {!isLoading && !hasError && allOrders?.length >= 0 && (
-        <div className="overflow-hidden rounded-xl">
-          <DistributionOrdersTable orders={filterOrders(allOrders)} />
-        </div>
-      )}
+      {!isLoading &&
+        !hasError &&
+        !isLoadingWorkers &&
+        allOrders?.length >= 0 && (
+          <div className="overflow-hidden rounded-xl">
+            <DistributionOrdersTable orders={filterOrders(allOrders)} />
+          </div>
+        )}
 
       {/* Loading animation */}
-      {isLoading && !hasError && (
+      {(isLoading || isLoadingWorkers) && !hasError && (
         <DotsLoader
           color="#0085FF"
           className="flex justify-center fixed top-1/2 inset-x-0 w-full"
@@ -83,12 +116,12 @@ const DistributionOrders = () => {
       )}
 
       {/* Reload button */}
-      {hasError && !isLoading && (
+      {hasError && !isLoading && !isLoadingWorkers && (
         <div className="flex justify-center fixed top-[calc(50%-20px)] inset-x-0">
           <button
             title="Reload"
             aria-label="Reload"
-            onClick={loadOrders}
+            onClick={handleReload}
             className="flex items-center justify-center size-10"
           >
             <Icon src={reloadIcon} alt="Reload icon" />

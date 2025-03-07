@@ -13,50 +13,24 @@ import {
   AlertDialogDescription,
 } from "@/components/ui/alert-dialog";
 
-// Components
-import Icon from "./Icon";
-import DotsLoader from "./DotsLoader";
-
 // Notification
 import { notification } from "@/notification";
 
 // Services
-import userService from "@/api/services/usersService";
 import ordersService from "@/api/services/ordersService";
-
-// Images
-import reloadIcon from "@/assets/images/icons/reload.svg";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
-import { updateWorkers } from "@/store/features/workersSlice";
 import { updateOrderStatus } from "@/store/features/ordersSlice";
 
 const DistributionOrderAlertDialog = ({ orderId, children, clientName }) => {
   const dispatch = useDispatch();
-  const [isLoading, setIsLoading] = useState(false);
   const workers = useSelector((state) => state.workers.data);
   const filteredWorkers = workers?.filter(({ status }) => status === "courier");
   const isValidWorkers = filteredWorkers?.length && filteredWorkers?.length > 0;
   const [courierId, setCourierId] = useState(
     filteredWorkers?.length ? filteredWorkers[0]["_id"] : null
   );
-
-  const loadWorkers = () => {
-    setIsLoading(true);
-
-    userService
-      .getWorkers()
-      .then((workers) => {
-        if (!workers?.length) {
-          return notification.error("Nimadir xato ketdi");
-        }
-
-        setCourierId(workers[0]["_id"]);
-        dispatch(updateWorkers(workers));
-      })
-      .finally(() => setIsLoading(false));
-  };
 
   const distributeOrder = () => {
     if (!orderId) return notification.error("Buyurtma belgilanmagan");
@@ -91,59 +65,31 @@ const DistributionOrderAlertDialog = ({ orderId, children, clientName }) => {
         </AlertDialogHeader>
 
         {/* Body */}
-        <div className="">
-          {/* Select workers */}
-          <div className="space-y-2 w-full">
-            <label htmlFor="courier" className="pl-1.5">
-              Yetkazuvchi *
-            </label>
+        <div className="space-y-2 w-full">
+          <label htmlFor="courier" className="pl-1.5">
+            Yetkazuvchi *
+          </label>
 
-            {/* Select */}
-            {!isLoading && isValidWorkers && (
-              <select
-                id="courier"
-                name="courier"
-                className="h-10 px-3.5 bg-gray-light"
-                disabled={isLoading || !isValidWorkers}
-                onChange={(e) => setCourierId(e.target.value)}
-              >
-                {isValidWorkers ? (
-                  filteredWorkers.map(({ _id: id, name }, index) => (
-                    <option key={index} value={id}>
-                      {name}
-                    </option>
-                  ))
-                ) : (
-                  <option>Yetkazuvchilar topilmadi!</option>
-                )}
-              </select>
-            )}
-
-            {!isValidWorkers && (
-              <div className="flex items-center justify-center gap-3.5 h-10">
-                {/* Loading animation */}
-                {isLoading && <DotsLoader color="#0085FF" />}
-
-                {/* Reload button */}
-                {!isLoading && (
-                  <button
-                    title="Reload"
-                    aria-label="Reload"
-                    onClick={loadWorkers}
-                    className="flex items-center justify-center gap-3.5"
-                  >
-                    <Icon
-                      size={20}
-                      src={reloadIcon}
-                      alt="Reload icon"
-                      className="size-5"
-                    />
-                    <span>Qayta yuklash</span>
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
+          {/* Select */}
+          {isValidWorkers && (
+            <select
+              id="courier"
+              name="courier"
+              disabled={!isValidWorkers}
+              className="h-10 px-3.5 bg-gray-light"
+              onChange={(e) => setCourierId(e.target.value)}
+            >
+              {isValidWorkers ? (
+                filteredWorkers.map(({ _id: id, name }, index) => (
+                  <option key={index} value={id}>
+                    {name}
+                  </option>
+                ))
+              ) : (
+                <option>Yetkazuvchilar topilmadi!</option>
+              )}
+            </select>
+          )}
         </div>
 
         {/* Footer */}
@@ -151,7 +97,7 @@ const DistributionOrderAlertDialog = ({ orderId, children, clientName }) => {
           <AlertDialogCancel>Bekor qilish</AlertDialogCancel>
           <AlertDialogAction
             onClick={distributeOrder}
-            disabled={isLoading || !isValidWorkers}
+            disabled={!isValidWorkers}
             className="btn hover:bg-primary-strong"
           >
             O'tkazish
