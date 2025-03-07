@@ -43,7 +43,7 @@ const CreateProduct = () => {
 
     // Check form data
     if (
-      Object.values(formData).length !== 9 ||
+      Object.values(formData).length !== 10 ||
       !formData?.images?.length ||
       formData?.images?.length === 0
     ) {
@@ -175,6 +175,17 @@ const CreateProduct = () => {
             name="price-for-seller"
             label="Sotuvchi uchun narx *"
             onChange={(value) => handleInputChange("for_seller", value)}
+          />
+
+          {/* Ads post */}
+          <FormInputWrapper
+            required
+            type="url"
+            name="ads-post"
+            disabled={isLoading}
+            label="Reklama posti *"
+            placeholder="https://t.me/..."
+            onChange={(value) => handleInputChange("ads_post", value)}
           />
 
           {/* Tags */}

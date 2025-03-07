@@ -39,6 +39,7 @@ const EditProduct = () => {
     title,
     images,
     total: count,
+    ads_post: adsPost,
     desc: description,
     for_seller: bonusPrice,
     discount_price: discountPrice,
@@ -79,19 +80,8 @@ const EditProduct = () => {
   // Submit form
   const handleUpdateProduct = (e) => {
     e.preventDefault();
+    const { tags } = formData || {};
     if (isUpdating || isUploading) return;
-
-    const {
-      tags,
-      type,
-      price,
-      title,
-      images,
-      total: count,
-      desc: description,
-      for_seller: bonusPrice,
-      discount_price: discountPrice,
-    } = formData || {};
 
     // Check images length
     if (!formData?.images?.length || formData?.images?.length === 0) {
@@ -109,22 +99,11 @@ const EditProduct = () => {
       } else return tags;
     };
 
-    // New formatted form data
-    const formattedFormData = {
-      tags,
-      type,
-      price,
-      title,
-      images,
-      total: count,
-      desc: description,
-      tags: formatTags(tags),
-      for_seller: bonusPrice,
-      discount_price: discountPrice,
-    };
-
     // Add loader
     setIsUpdating(true);
+
+    // New formatted form data
+    const formattedFormData = { ...formData, tags: formatTags(tags) };
 
     // Send request to create product
     productService
@@ -249,6 +228,18 @@ const EditProduct = () => {
               defaultValue={bonusPrice}
               label="Sotuvchi uchun narx *"
               onChange={(value) => handleInputChange("for_seller", value)}
+            />
+
+            {/* Ads post */}
+            <FormInputWrapper
+              required
+              type="url"
+              name="ads-post"
+              disabled={isUpdating}
+              defaultValue={adsPost}
+              label="Reklama posti *"
+              placeholder="https://t.me/..."
+              onChange={(value) => handleInputChange("ads_post", value)}
             />
 
             {/* Tags */}
