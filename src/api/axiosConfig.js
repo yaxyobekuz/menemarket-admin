@@ -29,7 +29,13 @@ api.interceptors.response.use(
     return response.data;
   },
   (err) => {
-    if (err.response && err.response?.status === 401) {
+    const { response: res, status } = err || {};
+    const { message } = res?.data || {};
+
+    if (
+      (res && status === 401) ||
+      (status === 404 && message === "User not found")
+    ) {
       localStorage.removeItem("token");
     }
 
