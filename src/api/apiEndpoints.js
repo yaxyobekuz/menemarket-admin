@@ -13,6 +13,7 @@ const apiEndpoints = {
   createWorker: "api/users/worker",
   getWorkers: "api/users/workers/all",
   deleteUser: (id) => `api/users/${id}`,
+  getUserById: (id) => `api/users/${id}`,
 
   // News
   getNews: "api/news",

@@ -21,6 +21,14 @@ const userService = {
     }
   },
 
+  getUserById: async (id) => {
+    try {
+      return await api.get(endpoints.getUserById(id));
+    } catch (err) {
+      throw err;
+    }
+  },
+
   getWorkers: async () => {
     try {
       return await api.get(endpoints.getWorkers);

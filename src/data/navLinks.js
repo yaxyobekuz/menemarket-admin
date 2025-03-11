@@ -68,6 +68,10 @@ export default {
       path: "/users/create-worker",
       label: "Ishchi yaratish",
     },
+    {
+      path: "/users/search",
+      label: "Qidirish",
+    },
   ],
 
   products: [
