@@ -19,10 +19,10 @@ import { updatePayments } from "@/store/features/paymentsSlice";
 
 const Payments = () => {
   const dispatch = useDispatch();
+  const [status, setStatus] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const allPayments = useSelector((state) => state.payments.data);
-  const [filteredPayments, setFilteredPayments] = useState(allPayments || []);
+  const payments = useSelector((state) => state.payments.data);
 
   const loadPayments = () => {
     setHasError(false);
@@ -31,21 +31,37 @@ const Payments = () => {
     paymentsService
       .getPayments()
       .then((payments) => {
-        setFilteredPayments(payments);
-        dispatch(updatePayments(payments));
+        if (payments?.length) dispatch(updatePayments(payments));
+        else throw new Error();
       })
       .catch(() => setHasError(true))
       .finally(() => setIsLoading(false));
   };
 
+  const getFilteredPayments = () => {
+    if (!isLoading && !hasError && payments?.length) {
+      if (!status) return payments;
+
+      const filtered = payments.filter((payment) => {
+        if (payment?.status && status) {
+          return payment?.status === status;
+        } else {
+          return false;
+        }
+      });
+
+      return filtered;
+    } else {
+      return [];
+    }
+  };
+
   const handleFilterPaymentsByStatus = (value) => {
-    if (!value) return setFilteredPayments(allPayments);
-    const filtered = allPayments.filter((payment) => payment.status === value);
-    setFilteredPayments(filtered);
+    setStatus(value);
   };
 
   useEffect(() => {
-    if (allPayments?.length === 0) loadPayments();
+    if (payments?.length === 0) loadPayments();
     else setTimeout(() => setIsLoading(false), 300);
   }, []);
 
@@ -79,9 +95,9 @@ const Payments = () => {
       </div>
 
       {/* Payments */}
-      {!isLoading && !hasError && filteredPayments?.length >= 0 && (
+      {!isLoading && !hasError && payments?.length >= 0 && (
         <div className="overflow-hidden rounded-xl">
-          <PaymentsTable data={filteredPayments} />
+          <PaymentsTable data={getFilteredPayments()} />
         </div>
       )}
 

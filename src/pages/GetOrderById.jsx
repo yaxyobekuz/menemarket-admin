@@ -45,6 +45,8 @@ const GetOrderById = () => {
         })
         .catch(() => setHasError(true))
         .finally(() => setIsLoading(false));
+    } else {
+      setHasError(false);
     }
   }, [orderId]);
 
@@ -385,7 +387,7 @@ const GetOrderById = () => {
         <DotsLoader color="#0085FF" className="flex justify-center w-full" />
       )}
 
-      <div className="text-[17px] text-center">
+      <p className="text-[17px] text-center">
         {!isLoading &&
           !hasError &&
           !order &&
@@ -393,7 +395,7 @@ const GetOrderById = () => {
 
         {/* Reload button */}
         {hasError && !isLoading && "Noma'lum xatolik yuz berdi :("}
-      </div>
+      </p>
     </div>
   );
 };
