@@ -12,6 +12,14 @@ const paymentService = {
       throw err;
     }
   },
+
+  updatePaymentStatus: async (paymentId, status) => {
+    try {
+      return await api.put(endpoints.updatePaymentStatus(paymentId, status));
+    } catch (err) {
+      throw err;
+    }
+  },
 };
 
 export default paymentService;

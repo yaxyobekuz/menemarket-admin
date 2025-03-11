@@ -8,10 +8,6 @@ const apiEndpoints = {
   getUserProfile: "profile",
   verifyOtp: "api/users/verifyOTP",
 
-  // Payments
-  createPayment: "api/payments",
-  getPayments: "api/payments/admin",
-
   // Users
   getUsers: "api/users",
   createWorker: "api/users/worker",
@@ -33,6 +29,13 @@ const apiEndpoints = {
   createBlog: "api/blogs",
   deleteBlogs: (id) => `api/blogs/${id}`,
   getBlogById: (id) => `api/blogs/${id}`,
+
+  // Payments
+  createPayment: "api/payments",
+  getPayments: "api/payments/admin",
+  updatePaymentStatus: (paymentId, status) => {
+    return `api/payments/${paymentId}/${status}`;
+  },
 
   // Orders
   getOrders: "api/orders",
