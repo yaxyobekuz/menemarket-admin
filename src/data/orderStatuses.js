@@ -31,6 +31,11 @@ export default [
   },
   {
     label: "Qaytarilgan",
+    value: "reject",
+    color: "#dc2626",
+  },
+  {
+    label: "Qaytarilgan",
     value: "returned",
     color: "#dc2626",
   },
