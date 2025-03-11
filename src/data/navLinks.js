@@ -109,6 +109,10 @@ export default {
       path: "/orders/distribution",
       label: "Taqsimlash",
     },
+    {
+      path: "/orders/get-order-by-id",
+      label: "Qidirish",
+    },
   ],
 
   comments: [

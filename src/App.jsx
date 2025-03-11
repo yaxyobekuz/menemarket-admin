@@ -33,6 +33,7 @@ import CreateNews from "./pages/CreateNews";
 import EditProduct from "./pages/EditProduct";
 import DonationBox from "./pages/DonationBox";
 import CreateWorker from "./pages/CreateWorker";
+import GetOrderById from "./pages/GetOrderById";
 import CreateProduct from "./pages/CreateProduct";
 import DistributionOrders from "./pages/DistributionOrders";
 
@@ -62,6 +63,10 @@ const App = () => {
           <Route path="users/create-worker" element={<CreateWorker />} />
           <Route path="products/edit/:productId" element={<EditProduct />} />
           <Route path="orders/distribution" element={<DistributionOrders />} />
+          <Route
+            element={<GetOrderById />}
+            path="orders/get-order-by-id/:orderId?"
+          />
         </Route>
         <Route path="/login" element={<Login />} />
       </Route>
