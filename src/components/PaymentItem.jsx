@@ -5,14 +5,15 @@ import { Link } from "react-router-dom";
 import roles from "@/data/roles";
 import orderStatuses from "@/data/orderStatuses";
 
+// Utils
+import { extractNumbers, formatDate } from "@/utils";
+
 // Components
 import Icon from "./Icon";
 import StickyCell from "./StickyCell";
 import CopyButton from "./CopyButton";
 import TruncatedCell from "./TruncatedCell";
-
-// Utils
-import { extractNumbers, formatDate } from "@/utils";
+import PaymentAlertDialog from "./PaymentAlertDialog";
 
 // Images
 import reloadIcon from "../assets/images/icons/double-reload.svg";
@@ -20,6 +21,7 @@ import reloadIcon from "../assets/images/icons/double-reload.svg";
 const PaymentItem = ({ data = {}, index = 0, isScrolled }) => {
   const {
     status,
+    _id: id,
     sending: user,
     payment: amount,
     created_at: timestamp,
@@ -91,15 +93,30 @@ const PaymentItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Action */}
       <td>
-        <div className="flex justify-center w-full">
-          <button aria-label="Reload" disabled className="btn size-11">
+        <div className="flex items-center justify-center w-full">
+          {status === "pending" ? (
+            <PaymentAlertDialog
+              paymentId={id}
+              amount={amount}
+              userName={firstName}
+            >
+              <button aria-label="Reload" className="btn size-11">
+                <Icon
+                  size={20}
+                  src={reloadIcon}
+                  alt="Reload icon"
+                  className="size-5"
+                />
+              </button>
+            </PaymentAlertDialog>
+          ) : (
             <Icon
               size={20}
               src={reloadIcon}
               alt="Reload icon"
-              className="size-5"
+              className="size-5 opacity-50"
             />
-          </button>
+          )}
         </div>
       </td>
     </tr>
