@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // Components
 import StickyCell from "./StickyCell";
@@ -15,6 +16,7 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
   let level = 0;
   const {
     status,
+    _id: id,
     client_mobile: tel,
     total_price: price,
     created_at: timestamp,
@@ -67,7 +69,9 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Order number */}
       <td>
-        <address>{orderNumber}</address>
+        <Link to={`/orders/get-order-by-id/${id}`} className="primary-link">
+          {orderNumber}
+        </Link>
       </td>
 
       {/* Address */}

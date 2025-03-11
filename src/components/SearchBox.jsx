@@ -10,12 +10,16 @@ import SpinLoader from "./SpinLoader";
 import searchIcon from "../assets/images/icons/search.svg";
 
 const SearchBox = ({
-  className = "",
   onChange,
+  className = "",
+  defaultValue = "",
   placeholder = "Qidirish...",
 }) => {
   const searchInputRef = useRef(null);
-  const [state, setState] = useState({ query: "", loading: false });
+  const [state, setState] = useState({
+    loading: false,
+    query: defaultValue || "",
+  });
 
   // set input value
   const handleSearch = useMemo(
@@ -75,7 +79,7 @@ const SearchBox = ({
         type="search"
         value={query}
         title="search"
-        maxLength={240}
+        maxLength={72}
         ref={searchInputRef}
         onChange={handleChange}
         placeholder={placeholder}

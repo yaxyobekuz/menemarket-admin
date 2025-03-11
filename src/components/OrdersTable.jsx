@@ -40,8 +40,8 @@ const OrdersTable = ({ orders }) => {
           {orders.map((order, index) => (
             <OrderItem
               data={order}
-              index={index + 1}
               key={order?._id}
+              index={index + 1}
               isScrolled={isScrolled}
             />
           ))}
