@@ -36,6 +36,7 @@ const apiEndpoints = {
 
   // Orders
   getOrders: "api/orders",
+  getOrder: (id) => `api/orders/${id}`,
   distributeOrder: (id) => `api/orders/${id}/send`,
 
   // Images

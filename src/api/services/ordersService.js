@@ -13,6 +13,14 @@ const ordersService = {
     }
   },
 
+  getOrder: async (id) => {
+    try {
+      return await api.get(endpoints.getOrder(id));
+    } catch (err) {
+      throw err;
+    }
+  },
+
   distributeOrder: async (id, data) => {
     try {
       return await api.put(endpoints.distributeOrder(id), data);

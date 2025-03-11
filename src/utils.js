@@ -18,6 +18,8 @@ export const getPercentageBgColor = (percentage = 0) => {
 
 // Format date
 export const formatDate = (input) => {
+  if (!input) return null;
+
   const date = new Date(input);
 
   const year = date.getFullYear();
@@ -29,6 +31,8 @@ export const formatDate = (input) => {
 
 // Format time
 export const formatTime = (input) => {
+  if (!input) return null;
+
   const date = new Date(input);
 
   const hours = String(date.getHours()).padStart(2, "0");
