@@ -172,7 +172,7 @@ const GetOrderById = () => {
               <h3 className="font-medium">Yetkazuvchi:</h3>
               <a
                 target="_blank"
-                href={`/users/user/${courierId}`}
+                href={`/users/search/${courierId}`}
                 className="text-neutral-500 primary-link"
               >
                 {courierId || "Mavjud emas!"}
@@ -184,7 +184,7 @@ const GetOrderById = () => {
               <h3 className="font-medium">Operator:</h3>
               <a
                 target="_blank"
-                href={`/users/user/${operatorId}`}
+                href={`/users/search/${operatorId}`}
                 className="text-neutral-500 primary-link"
               >
                 {operatorId || "Mavjud emas!"}
@@ -288,7 +288,7 @@ const GetOrderById = () => {
                   <h3 className="font-medium">ID:</h3>
                   <a
                     target="_blank"
-                    href={`/users/user/${userId}`}
+                    href={`/users/search/${userId}`}
                     className="text-neutral-500 primary-link"
                   >
                     {userId || "Mavjud emas!"}

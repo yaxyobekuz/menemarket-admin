@@ -43,7 +43,7 @@ const UserItem = ({ data = {}, index = 0, isScrolled, deleteUser }) => {
 
       {/* First Name */}
       <TruncatedCell trunc="2">
-        <Link to={`/users/user/${id}`} className="primary-link">
+        <Link to={`/users/search/${id}`} className="primary-link">
           {firstName}
         </Link>
       </TruncatedCell>

@@ -53,7 +53,7 @@ const PaymentItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* User */}
       <TruncatedCell trunc="2">
-        <Link to={`/users/user/${userId}`} className="primary-link">
+        <Link to={`/users/search/${userId}`} className="primary-link">
           {firstName || "Mavjud emas"}
         </Link>
       </TruncatedCell>
