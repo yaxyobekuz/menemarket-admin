@@ -36,6 +36,7 @@ import CreateWorker from "./pages/CreateWorker";
 import GetOrderById from "./pages/GetOrderById";
 import CreateProduct from "./pages/CreateProduct";
 import DistributionOrders from "./pages/DistributionOrders";
+import SearchUser from "./pages/SearchUser";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -60,6 +61,7 @@ const App = () => {
           <Route path="blogs/create" element={<CreateBlog />} />
           <Route path="donation-box" element={<DonationBox />} />
           <Route path="products/create" element={<CreateProduct />} />
+          <Route path="users/search/:userId?" element={<SearchUser />} />
           <Route path="users/create-worker" element={<CreateWorker />} />
           <Route path="products/edit/:productId" element={<EditProduct />} />
           <Route path="orders/distribution" element={<DistributionOrders />} />
