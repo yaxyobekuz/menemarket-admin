@@ -18,6 +18,7 @@ import productService from "@/api/services/productService";
 
 // Components
 import Tabs from "@/components/Tabs";
+import Icon from "@/components/Icon";
 import DotsLoader from "@/components/DotsLoader";
 import LoadingText from "@/components/LoadingText";
 import UploadImageBox from "@/components/UploadImageBox";
