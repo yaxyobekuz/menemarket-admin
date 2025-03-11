@@ -53,6 +53,7 @@ const GetOrderById = () => {
   const {
     user_id: user,
     oqim_id: stream,
+    desc: description,
     product_id: product,
     status: orderStatus,
     courier_id: courierId,
@@ -205,6 +206,14 @@ const GetOrderById = () => {
               <address className="text-neutral-500">
                 {fullAddress || "Mavjud emas!"}
               </address>
+            </li>
+
+            {/* Description */}
+            <li className="flex gap-2">
+              <h3 className="font-medium">Izoh:</h3>
+              <p className="text-neutral-500">
+                {description || "Mavjud emas!"}
+              </p>
             </li>
 
             {/* Timestamp (Created At) */}
