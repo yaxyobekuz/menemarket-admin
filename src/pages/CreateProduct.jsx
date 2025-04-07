@@ -36,14 +36,16 @@ const CreateProduct = () => {
   }, []);
 
   // Submit form
-  const handleCreateProduct = (e) => {
+  const handleCreateProduct = async (e) => {
     e.preventDefault();
 
     if (isLoading) return;
 
+    const types = formData?.types;
+
     // Check form data
     if (
-      Object.values(formData).length !== 10 ||
+      Object.values(formData).length <= 9 ||
       !formData?.images?.length ||
       formData?.images?.length === 0
     ) {
@@ -59,8 +61,25 @@ const CreateProduct = () => {
     // New formatted form data
     const formattedFormData = {
       ...formData,
+      stocks: [
+        { quantity: 50, title: "Hello world" },
+        { quantity: 50, title: "yamayo" },
+      ],
       tags: formattedTags,
     };
+
+    if (types?.length > 3) {
+      const items = types
+        ?.split("|")
+        .map((item) => {
+          const [title, quantity] = item?.split(",").map((i) => i?.trim());
+          return { title, quantity: Number(quantity) };
+        })
+        .filter(({ title, quantity }) => quantity > 0 && title?.length > 0);
+
+      const res = await productService.createStocks({ stocks: items });
+      formattedFormData.types = res?.stocks;
+    }
 
     // Add loader
     setIsLoading(true);
@@ -181,6 +200,7 @@ const CreateProduct = () => {
           <FormInputWrapper
             required
             type="url"
+            defaultValue="https://t.me/"
             name="ads-post"
             disabled={isLoading}
             label="Reklama posti *"
@@ -196,6 +216,16 @@ const CreateProduct = () => {
             disabled={isLoading}
             placeholder="Bolalar uchun, O'yinchoq..."
             onChange={(value) => handleInputChange("tags", value)}
+          />
+
+          {/* Types */}
+          <FormInputWrapper
+            as="textarea"
+            name="types"
+            label="Turlar"
+            disabled={isLoading}
+            onChange={(value) => handleInputChange("types", value)}
+            placeholder="Oq rang, 99 | Qora rang, 99 | Qizil rang, 99"
           />
 
           {/* Description */}
