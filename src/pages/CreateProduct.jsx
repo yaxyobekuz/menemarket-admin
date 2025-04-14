@@ -78,7 +78,7 @@ const CreateProduct = () => {
         .filter(({ title, quantity }) => quantity > 0 && title?.length > 0);
 
       const res = await productService.createStocks({ stocks: items });
-      formattedFormData.types = res?.stocks;
+      formattedFormData.type_ids = res?.ids;
     }
 
     // Add loader
