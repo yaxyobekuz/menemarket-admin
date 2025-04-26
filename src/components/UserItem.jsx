@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // Data
 import roles from "@/data/roles";
 
+// Redux
+import { useSelector } from "react-redux";
+
 // Components
 import Icon from "./Icon";
 import StickyCell from "./StickyCell";
@@ -25,8 +28,10 @@ const UserItem = ({ data = {}, index = 0, isScrolled, deleteUser }) => {
     created_at: timestamp,
     verificated: isVerificated,
   } = data || {};
+  const { status: adminRole } = useSelector((state) => state.user.data);
 
-  const canDelete = isOneDayPassed(timestamp) && !isVerificated;
+  const canDelete =
+    (isOneDayPassed(timestamp) || adminRole === "owner") && !isVerificated;
   const handleDeleteUser = () => (canDelete ? deleteUser(id) : null);
   const formattedRole =
     roles.find(({ value }) => value == role?.toLowerCase())?.name ||
