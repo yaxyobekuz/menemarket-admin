@@ -1,4 +1,6 @@
+import axios from "axios";
 import avatars from "./data/avatars";
+import addresses from "./data/addresses";
 
 export const getRandomNumber = (min = 0, max = 1) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -71,4 +73,23 @@ export const extractNumbers = (text = "") => {
 export const extractIdFromUrl = (url) => {
   const id = url.split("https://nyc3.digitaloceanspaces.com/menemarket/");
   return id?.length === 2 ? id[1] : null;
+};
+
+export const sendMessageToTelegram = async (chatId, text) => {
+  const payload = { text, chat_id: chatId };
+  const token = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+  const url = `https://api.telegram.org/bot${token}/sendMessage`;
+  return await axios.post(url, payload); // Send message to telegram chat
+};
+
+export const formatUzbekPhoneNumber = (input) => {
+  const digits = input.replace(/\D/g, "");
+  const normalized = digits.startsWith("998") ? digits : "998" + digits;
+  if (normalized.length !== 12) return "Noto'g'ri raqam";
+  const code = normalized.slice(3, 5);
+  const part1 = normalized.slice(5, 8);
+  const part2 = normalized.slice(8, 10);
+  const part3 = normalized.slice(10, 12);
+
+  return `+998 (${code}) ${part1} ${part2} ${part3}`;
 };

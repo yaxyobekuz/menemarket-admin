@@ -37,6 +37,7 @@ import GetOrderById from "./pages/GetOrderById";
 import CreateProduct from "./pages/CreateProduct";
 import DistributionOrders from "./pages/DistributionOrders";
 import SearchUser from "./pages/SearchUser";
+import UltraMegaSuperMuperDistributeOrders from "./pages/UltraMegaSuperMuperDistributeOrders";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -65,6 +66,10 @@ const App = () => {
           <Route path="users/create-worker" element={<CreateWorker />} />
           <Route path="products/edit/:productId" element={<EditProduct />} />
           <Route path="orders/distribution" element={<DistributionOrders />} />
+          <Route
+            path="ultra-mega-super-muper-distribute-orders"
+            element={<UltraMegaSuperMuperDistributeOrders />}
+          />
           <Route
             element={<GetOrderById />}
             path="orders/get-order-by-id/:orderId?"

@@ -67,6 +67,10 @@ const Orders = () => {
               value: "pending",
             },
             {
+              label: "Tekshirilmoqda",
+              value: "checking",
+            },
+            {
               label: "Tekshirilgan",
               value: "checked",
             },
