@@ -15,6 +15,7 @@ import Icon from "./Icon";
 import StickyCell from "./StickyCell";
 import TruncatedCell from "./TruncatedCell";
 import DistributionOrderAlertDialog from "./DistributionOrderAlertDialog";
+import { Link } from "react-router-dom";
 
 const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
   let level = 0;
@@ -73,7 +74,9 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
 
       {/* Order number */}
       <td>
-        <address>{orderNumber}</address>
+        <Link to={`/orders/get-order-by-id/${id}`} className="primary-link">
+          {orderNumber}
+        </Link>
       </td>
 
       {/* Address */}
