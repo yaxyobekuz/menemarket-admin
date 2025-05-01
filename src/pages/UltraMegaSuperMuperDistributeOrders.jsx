@@ -141,7 +141,7 @@ const UltraMegaSuperMuperDistributeOrders = () => {
                       order.product_id?.price + 30000
                     )?.toLocaleString()} so'm`;
 
-                    const message = `📦 Buyurtma Nº ${order.order_code}\n\n🆔 Id raqam: ${order._id}\n\n👤 Mijoz: ${name}\n\n📞 Tel raqam: ${tel}\n\n📍 Manzil: ${address}\n\n💵 Narx: ${price}\n\n🪧 To'liq manzil: ${fullAddress}`;
+                    const message = `📦 Buyurtma Nº ${order.order_code}\n\n🆔 Id raqam: ${order._id}\n\n📋 Mahsulot: ${order.product_id?.title}\n\n👤 Mijoz: ${name}\n\n📞 Tel raqam: ${tel}\n\n📍 Manzil: ${address}\n\n💵 Narx: ${price}\n\n🪧 To'liq manzil: ${fullAddress}`;
 
                     sendMessageToTelegram(chatId, message);
                   }),
