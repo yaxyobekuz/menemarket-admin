@@ -23,7 +23,6 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
     status,
     _id: id,
     client_mobile: tel,
-    total_price: price,
     product_id: product,
     created_at: timestamp,
     client_name: firstName,
@@ -31,7 +30,9 @@ const DistributionOrderItem = ({ data = {}, index = 0, isScrolled }) => {
     client_address: address,
   } = data || {};
 
+  const price = product?.price + 30000 || "0";
   const productId = product ? product?._id : null;
+
 
   const formattedAddress =
     addresses.find(({ value }) => value == address)?.label ||

@@ -60,12 +60,13 @@ const GetOrderById = () => {
     created_at: timestamp,
     order_code: orderCode,
     client_name: clientName,
-    total_price: totalPrice,
     operator_id: operatorId,
     full_address: fullAddress,
     client_mobile: clientMobile,
     client_address: clientAddress,
   } = order || {};
+
+  const totalPrice = product?.price + 30000 || "0";
 
   const {
     _id: productId,

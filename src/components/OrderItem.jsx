@@ -18,7 +18,6 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
     status,
     _id: id,
     client_mobile: tel,
-    total_price: price,
     created_at: timestamp,
     product_id: product,
     client_name: firstName,
@@ -26,6 +25,7 @@ const OrderItem = ({ data = {}, index = 0, isScrolled }) => {
     order_code: orderNumber,
   } = data || {};
 
+  const price = product?.price + 30000 || "0";
   const formattedProductId = product ? product?._id : null;
 
   const formattedAddress =
